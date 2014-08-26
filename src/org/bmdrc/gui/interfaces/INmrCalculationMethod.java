@@ -15,4 +15,6 @@ package org.bmdrc.gui.interfaces;
 public interface INmrCalculationMethod {
 
     String DB_SEARCH_USING_2D_NMR = "DB Search using HMQC and HMBC";
+    String HOSE_CODE_GENERATION = "Generate Hose Code";
+    String HOSE_CODE_GENERATION_IN_MULTIPLE_FILE = "Generate Hose Code(Batch)";
 }

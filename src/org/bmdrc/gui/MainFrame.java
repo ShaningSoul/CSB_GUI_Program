@@ -20,7 +20,7 @@ import javax.swing.border.*;
 import org.bmdrc.gui.listeners.TypeOfCalculationButtonItemListener;
 import org.bmdrc.gui.interfaces.IEtcCalculationMethod;
 import org.bmdrc.gui.interfaces.ITypeOfCalculation;
-import org.bmdrc.tools.InputThreadInformation;
+import org.bmdrc.chemistry.tool.InputThreadInformation;
 
 /**
  *

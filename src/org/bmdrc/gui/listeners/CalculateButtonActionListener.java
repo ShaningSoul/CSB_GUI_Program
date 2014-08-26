@@ -25,10 +25,10 @@ import org.bmdrc.gui.interfaces.ITypeOfCalculation;
 import org.bmdrc.interfaces.IStringConstant;
 import org.bmdrc.mass.tool.Compare20And500Scan;
 import org.bmdrc.nmr.gui.NmrInCalculateButtonActionListener;
-import org.bmdrc.tools.InputThreadInformation;
-import org.bmdrc.tools.MoleculeModifier;
-import org.bmdrc.tools.MpeoeAndCdeapCalculator;
-import org.bmdrc.tools.SFECalculator;
+import org.bmdrc.chemistry.tool.InputThreadInformation;
+import org.bmdrc.chemistry.tool.MoleculeModifier;
+import org.bmdrc.chemistry.tool.MpeoeAndCdeapCalculator;
+import org.bmdrc.chemistry.tool.SFECalculator;
 
 /**
  *

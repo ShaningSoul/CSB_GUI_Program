@@ -8,6 +8,7 @@
 package org.bmdrc.nmr.gui;
 
 import java.io.File;
+import org.bmdrc.chemistry.tool.HoseCodeGenerator;
 import org.bmdrc.gui.MainFrame;
 import org.bmdrc.gui.interfaces.INmrCalculationMethod;
 import org.bmdrc.nmr.gui.interfaces.INmrInCalculateButtonActionListener;
@@ -45,6 +46,10 @@ public class NmrInCalculateButtonActionListener implements INmrCalculationMethod
             
             theSearcher.searchMatchedMoleculeIn2DNMR();
             theSearcher.writeResultMoleculeSet(new File(theFrame.getFilePathTextFieldList().get(NmrInCalculateButtonActionListener.RESULT_FILE_PATH_INDEX_IN_DB_SEARCHER).getText()));
+        } else if(theFrame.getSelectedCalculationMethod().equals(NmrInCalculateButtonActionListener.HOSE_CODE_GENERATION)) {
+            HoseCodeGenerator.generateHoseCode(theFrame.getFilePathTextFieldList().get(NmrInCalculateButtonActionListener.INPUT_MOLECULE_FILE_PATH_INDEX_IN_HOSE_CODE_GENERATOR).getText(), 
+                    theFrame.getFilePathTextFieldList().get(NmrInCalculateButtonActionListener.RESULT_MOLECULE_FILE_PATH_INDEX_IN_HOSE_CODE_GENERATOR).getText(), 
+                    Integer.parseInt(theFrame.getFilePathTextFieldList().get(NmrInCalculateButtonActionListener.LEVEL_OF_HOSE_CODE_INDEX_IN_HOSE_CODE_GENERATOR).getText()));
         }
     }
 }

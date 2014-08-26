@@ -45,6 +45,8 @@ public class NmrComboBox implements INmrCalculationMethod {
         List<String> theTypeOfCalculationMethodList = new ArrayList<>();
 
         theTypeOfCalculationMethodList.add(this.DB_SEARCH_USING_2D_NMR);
+        theTypeOfCalculationMethodList.add(this.HOSE_CODE_GENERATION);
+        theTypeOfCalculationMethodList.add(this.HOSE_CODE_GENERATION_IN_MULTIPLE_FILE);
 
         return theTypeOfCalculationMethodList.toArray(new String[theTypeOfCalculationMethodList.size()]);
     }

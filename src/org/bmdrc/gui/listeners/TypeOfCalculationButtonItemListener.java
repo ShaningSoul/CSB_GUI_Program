@@ -18,7 +18,7 @@ import org.bmdrc.gui.NmrComboBox;
 import org.bmdrc.gui.interfaces.ITypeOfCalculation;
 import org.bmdrc.mass.tool.Compare20And500Scan;
 import org.bmdrc.nmr.tool.DBSearcher;
-import org.bmdrc.tools.InputThreadInformation;
+import org.bmdrc.chemistry.tool.InputThreadInformation;
 
 /**
  *
@@ -62,7 +62,7 @@ public class TypeOfCalculationButtonItemListener implements ItemListener, ITypeO
             NmrComboBox theNmrComboBox = new NmrComboBox(this.getFrame());
             
             theNmrComboBox.generateNmrCombBox();
-            this.setFrame().setTypeOfCalculationMethod(this.MASS_TYPE);
+            this.setFrame().setTypeOfCalculationMethod(this.NMR_TYPE);
             this.setFrame().setSelectedCalculationMethod(theNmrComboBox.getTypeOfCalculationMethodArray()[this.FIRST_INDEX]);
             DBSearcher.generateDBSearcherFilePathBox(this.getFrame());
         } else if(theTypeOfCalculation.equals(this.ETC_TYPE)) {

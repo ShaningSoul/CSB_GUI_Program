@@ -4,11 +4,14 @@
  */
 package org.bmdrc.nmr.interfaces;
 
+import java.util.List;
+
 /**
  *
  * @author labwindows
  */
 public interface IFunctionalGroupConstantVariable {
+    List<String> getFunctionalGroupList();
     public static final String FUNCTIONAL_GROUP_HYDROGEN = "Hydrogen";
     public static final String FUNCTIONAL_GROUP_CHARGED_ATOM = "ChargedAtom";
     public static final String FUNCTIONAL_GROUP_CARBOXYLIC_ACID = "Carboxylic";

@@ -1,6 +1,6 @@
 package org.bmdrc.nmr.tool;
 
-import org.bmdrc.tools.SFECalculator;
+import org.bmdrc.chemistry.tool.SFECalculator;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
@@ -15,7 +15,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
-import org.bmdrc.nmr.interfaces.IAtomicNumber;
+import org.bmdrc.chemistry.interfaces.IAtomicNumber;
 import org.bmdrc.nmr.Nmr1dUnit;
 import org.bmdrc.nmr.Nmr1dUnitList;
 import org.bmdrc.util.Module;

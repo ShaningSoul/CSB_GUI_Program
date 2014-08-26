@@ -7,6 +7,7 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Set;
 import java.util.TreeSet;
@@ -17,7 +18,7 @@ import org.bmdrc.util.Module;
  * @author SungBo Hwang, CSB
  * @author GiBum Shin, CSB
  */
-public class PeakList {
+public class PeakList implements Iterable{
 
     private List<PeakUnit> itsPeakList;
     private final int INDEX_OF_WEIGHT = 0;
@@ -157,5 +158,10 @@ public class PeakList {
         theStringBuilder.append(this.getWeightList());
         
         return theStringBuilder.toString();
+    }
+
+    @Override
+    public Iterator iterator() {
+        return this.getPeakList().iterator();
     }
 }

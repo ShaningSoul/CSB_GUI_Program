@@ -7,6 +7,7 @@
  */
 package org.bmdrc.nmr.gui;
 
+import org.bmdrc.chemistry.tool.HoseCodeGenerator;
 import org.bmdrc.gui.MainFrame;
 import org.bmdrc.gui.interfaces.INmrCalculationMethod;
 import org.bmdrc.nmr.tool.DBSearcher;
@@ -20,6 +21,10 @@ public class NmrInComboBoxActionListener implements INmrCalculationMethod{
     public static void generateFilePathBox(MainFrame theFrame) {
         if(theFrame.getSelectedCalculationMethod().equals(NmrInComboBoxActionListener.DB_SEARCH_USING_2D_NMR)) {
             DBSearcher.generateDBSearcherFilePathBox(theFrame);
+        } else if(theFrame.getSelectedCalculationMethod().equals(NmrInComboBoxActionListener.HOSE_CODE_GENERATION)) {
+            HoseCodeGenerator.generateFilePathBox(theFrame);
+        } else if(theFrame.getSelectedCalculationMethod().equals(NmrInComboBoxActionListener.HOSE_CODE_GENERATION_IN_MULTIPLE_FILE)) {
+            HoseCodeGenerator.generateBatchFilePathBox(theFrame);
         }
     }
 }

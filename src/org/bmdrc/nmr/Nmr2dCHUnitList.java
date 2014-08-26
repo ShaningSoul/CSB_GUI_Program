@@ -5,12 +5,13 @@
 package org.bmdrc.nmr;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 /**
  *
  * @author labwindows
  */
-public class Nmr2dCHUnitList {
+public class Nmr2dCHUnitList implements Iterable{
     private List<Nmr2dCHUnit> itsPeakList;
 
     public Nmr2dCHUnitList() {
@@ -87,5 +88,10 @@ public class Nmr2dCHUnitList {
         }
         
         return false;
+    }
+
+    @Override
+    public Iterator iterator() {
+        return this.getPeakList().iterator();
     }
 }

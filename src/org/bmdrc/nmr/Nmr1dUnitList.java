@@ -5,13 +5,14 @@
 package org.bmdrc.nmr;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
 /**
  *
  * @author labwindows
  */
-public class Nmr1dUnitList {
+public class Nmr1dUnitList implements Iterable{
     private List<Nmr1dUnit> itsPeakList;
 
     public Nmr1dUnitList() {
@@ -42,7 +43,7 @@ public class Nmr1dUnitList {
     public Nmr1dUnitList getPeakListUsingAnnotatedAtomNumber(int theAtomNumber) {
         Nmr1dUnitList thePeakListInAnnotatedAtomNumber = new Nmr1dUnitList();
         
-        for(int pi = 0, pEnd = this.getPeakList().size() ; pi < pEnd ; pi++) {
+        for(int pi = 0, pEnd = this.size() ; pi < pEnd ; pi++) {
             if(this.getPeak(pi).getAnnotatedAtomNumber() == theAtomNumber) {
                 thePeakListInAnnotatedAtomNumber.addPeak(this.getPeak(pi));
             }
@@ -65,5 +66,10 @@ public class Nmr1dUnitList {
     
     public int size() {
         return this.getPeakList().size();
+    }
+
+    @Override
+    public Iterator iterator() {
+        return this.getPeakList().iterator();
     }
 }

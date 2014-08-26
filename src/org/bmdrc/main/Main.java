@@ -7,20 +7,7 @@
  */
 package org.bmdrc.main;
 
-import java.io.BufferedReader;
-import java.io.BufferedWriter;
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
-import java.io.FileWriter;
-import java.io.IOException;
-import java.util.List;
 import org.bmdrc.gui.MainFrame;
-import org.bmdrc.util.Module;
-import org.bmdrc.util.SDFReader;
-import org.bmdrc.util.SDFWriter;
-import org.openscience.cdk.MoleculeSet;
-import org.openscience.cdk.interfaces.IMoleculeSet;
 
 /**
  *
@@ -28,7 +15,7 @@ import org.openscience.cdk.interfaces.IMoleculeSet;
  */
 public class Main {
 
-    public static void main(String[] args) throws FileNotFoundException, IOException {
+    public static void main(String[] args) {
         MainFrame theFrame = new MainFrame();
     }
 }

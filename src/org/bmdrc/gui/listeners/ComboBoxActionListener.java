@@ -20,10 +20,10 @@ import org.bmdrc.gui.interfaces.IMassCalculationMethod;
 import org.bmdrc.gui.interfaces.ITypeOfCalculation;
 import org.bmdrc.mass.tool.Compare20And500Scan;
 import org.bmdrc.nmr.gui.NmrInComboBoxActionListener;
-import org.bmdrc.tools.InputThreadInformation;
-import org.bmdrc.tools.MoleculeModifier;
-import org.bmdrc.tools.MpeoeAndCdeapCalculator;
-import org.bmdrc.tools.SFECalculator;
+import org.bmdrc.chemistry.tool.InputThreadInformation;
+import org.bmdrc.chemistry.tool.MoleculeModifier;
+import org.bmdrc.chemistry.tool.MpeoeAndCdeapCalculator;
+import org.bmdrc.chemistry.tool.SFECalculator;
 import org.openscience.cdk.exception.CDKException;
 
 /**
@@ -59,10 +59,13 @@ public class ComboBoxActionListener implements ItemListener, IEtcCalculationMeth
         this.setFrame().setSelectedCalculationMethod(theSelectedCalculationMethod);
 
         if (this.getFrame().getTypeOfCalculationMethod().equals(this.MASS_TYPE)) {
+            System.out.println(this.getFrame().getTypeOfCalculationMethod());
             this.__calculateMassType(theSelectedCalculationMethod);
         } else if (this.getFrame().getTypeOfCalculationMethod().equals(this.NMR_TYPE)) {
+            System.out.println(this.getFrame().getTypeOfCalculationMethod());
             NmrInComboBoxActionListener.generateFilePathBox(this.getFrame());
         } else if (this.getFrame().getTypeOfCalculationMethod().equals(this.ETC_TYPE)) {
+            System.out.println(this.getFrame().getTypeOfCalculationMethod());
             this.__calculateEtcType(theSelectedCalculationMethod);
         }
 

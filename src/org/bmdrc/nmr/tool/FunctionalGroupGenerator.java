@@ -2,11 +2,12 @@ package org.bmdrc.nmr.tool;
 
 import java.util.*;
 import java.util.regex.PatternSyntaxException;
-import org.bmdrc.nmr.interfaces.IAtomicNumber;
+import org.bmdrc.chemistry.interfaces.IAtomicNumber;
 import org.bmdrc.nmr.interfaces.IFunctionalGroupConstantVariable;
 import org.bmdrc.nmr.interfaces.IHoseCodeSymbol;
 import org.bmdrc.util.Module;
 import org.bmdrc.interfaces.IStringConstant;
+import org.bmdrc.nmr.util.FunctionalGroupConstantVariable;
 import org.openscience.cdk.Molecule;
 import org.openscience.cdk.MoleculeSet;
 import org.openscience.cdk.interfaces.IMolecule;
@@ -778,6 +779,13 @@ public class FunctionalGroupGenerator implements IFunctionalGroupConstantVariabl
         }
 
         return theNumberOfValue;
+    }
+
+    @Override
+    public List<String> getFunctionalGroupList() {
+        FunctionalGroupConstantVariable theFunctionalGroupList = new FunctionalGroupConstantVariable();
+        
+        return theFunctionalGroupList.getFunctionalGroupList();
     }
 }
 
