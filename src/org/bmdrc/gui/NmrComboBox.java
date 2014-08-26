@@ -44,6 +44,7 @@ public class NmrComboBox implements INmrCalculationMethod {
     public String[] getTypeOfCalculationMethodArray() {
         List<String> theTypeOfCalculationMethodList = new ArrayList<>();
 
+        theTypeOfCalculationMethodList.add(this.DB_SEARCH_USING_2D_NMR);
 
         return theTypeOfCalculationMethodList.toArray(new String[theTypeOfCalculationMethodList.size()]);
     }
@@ -54,6 +55,7 @@ public class NmrComboBox implements INmrCalculationMethod {
         theNmrComboBox.setMaximumSize(new Dimension(Integer.MAX_VALUE, this.MAXIMUM_COMBO_BOX_HEIGHT));
         this.setFrame().setComboBox().removeAll();
         this.setFrame().setComboBox().add(theNmrComboBox);
+        this.setFrame().setSelectedCalculationMethod(this.DB_SEARCH_USING_2D_NMR);
         theNmrComboBox.addItemListener(new ComboBoxActionListener(this.getFrame()));
         theNmrComboBox.setSelectedIndex(this.FIRST_INDEX);
         theNmrComboBox.setName("Nmr");

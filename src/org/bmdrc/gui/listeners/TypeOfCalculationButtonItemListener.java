@@ -17,6 +17,7 @@ import org.bmdrc.gui.MassComboBox;
 import org.bmdrc.gui.NmrComboBox;
 import org.bmdrc.gui.interfaces.ITypeOfCalculation;
 import org.bmdrc.mass.tool.Compare20And500Scan;
+import org.bmdrc.nmr.tool.DBSearcher;
 import org.bmdrc.tools.InputThreadInformation;
 
 /**
@@ -49,6 +50,7 @@ public class TypeOfCalculationButtonItemListener implements ItemListener, ITypeO
         JRadioButton theButton = (JRadioButton) e.getItem();
         String theTypeOfCalculation = theButton.getText();
         
+        this.setFrame().setComboBox().transferFocus();
         if(theTypeOfCalculation.equals(this.MASS_TYPE)) {
             MassComboBox theMassComboBox = new MassComboBox(this.getFrame());
             
@@ -56,11 +58,14 @@ public class TypeOfCalculationButtonItemListener implements ItemListener, ITypeO
             this.setFrame().setTypeOfCalculationMethod(this.MASS_TYPE);
             this.setFrame().setSelectedCalculationMethod(theMassComboBox.getMassCalculationMethodArray()[this.FIRST_INDEX]);
             Compare20And500Scan.generateSplitedMoleculeFileFilePathBox(this.getFrame());
-        } /*else if(theTypeOfCalculation.equals(this.NMR_TYPE)) {
+        } else if(theTypeOfCalculation.equals(this.NMR_TYPE)) {
             NmrComboBox theNmrComboBox = new NmrComboBox(this.getFrame());
             
             theNmrComboBox.generateNmrCombBox();
-        } */else if(theTypeOfCalculation.equals(this.ETC_TYPE)) {
+            this.setFrame().setTypeOfCalculationMethod(this.MASS_TYPE);
+            this.setFrame().setSelectedCalculationMethod(theNmrComboBox.getTypeOfCalculationMethodArray()[this.FIRST_INDEX]);
+            DBSearcher.generateDBSearcherFilePathBox(this.getFrame());
+        } else if(theTypeOfCalculation.equals(this.ETC_TYPE)) {
             EtcComboBox theEtcComboBox = new EtcComboBox(this.getFrame());
             
             theEtcComboBox.generateEtcCombBox();

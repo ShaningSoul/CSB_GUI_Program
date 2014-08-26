@@ -46,7 +46,7 @@ public class MainFrame extends JFrame implements IEtcCalculationMethod, ITypeOfC
     //constant int variable
     private final Integer TEXT_FIELD_BOX_VERTICAL_MARGIN = 50;
     private final Integer INPUT_AREA_HORIZONTAIL_MARGIN = 10;
-    private final Integer CALCULATION_BUTTON_VERTICAL_MARGIN = 10;
+    private final Integer CALCULATION_BUTTON_VERTICAL_MARGIN = 25;
     private final Integer LOG_TEXT_AREA_HORIZONTAL_MARGIN = 10;
     private final Integer CHECK_BOX_HORIZONTAL_MARGIN = 10;
     private final Integer OPTION_CHECK_BOX_VERTICAL_MARGIN = 100;
@@ -165,17 +165,7 @@ public class MainFrame extends JFrame implements IEtcCalculationMethod, ITypeOfC
     public Box setOptionArea() {
         return itsOptionArea;
     }
-    
-    private String[] __getCalculationMethodArray() {
-        ArrayList<String> theCalculationMethodList = new ArrayList<>();
-
-        theCalculationMethodList.add(this.INPUT_THREAD_INFORMATION);
-        theCalculationMethodList.add(this.MERGE_MOLECULE_FILE);
-        theCalculationMethodList.add(this.SPLIT_MOLECULE_FILE);
-
-        return theCalculationMethodList.toArray(new String[theCalculationMethodList.size()]);
-    }
-
+   
     private void __initializeFrame() {
         Toolkit theToolKit = Toolkit.getDefaultToolkit();
         Image theImage = theToolKit.getImage(this.getClass().getClassLoader().getResource(this.IMAGE_PATH));
@@ -188,6 +178,7 @@ public class MainFrame extends JFrame implements IEtcCalculationMethod, ITypeOfC
         this.add(this.__generateComponentBox());
         this.setSelectedCalculationMethod(this.INPUT_THREAD_INFORMATION);
         this.setDefaultCloseOperation(this.EXIT_ON_CLOSE);
+        this.setInputArea().setFocusable(true);
         this.revalidate();
     }
 
@@ -196,7 +187,7 @@ public class MainFrame extends JFrame implements IEtcCalculationMethod, ITypeOfC
 
         theBox.add(this.__generateChoiceBox());
         theBox.add(this.__generateCalculateButtonBox());
-
+        
         return theBox;
     }
 
@@ -261,7 +252,7 @@ public class MainFrame extends JFrame implements IEtcCalculationMethod, ITypeOfC
     private Box __generateCalculationTypeBox() {
         Box theBox = Box.createHorizontalBox();
         JRadioButton theMassButton = new JRadioButton(this.MASS_TYPE, false);
-        //JRadioButton theNmrButton = new JRadioButton(this.NMR_TYPE, false);
+        JRadioButton theNmrButton = new JRadioButton(this.NMR_TYPE, false);
         JRadioButton theEtcButton = new JRadioButton(this.ETC_TYPE, true);
 
         this.setTypeOfCalculationMethod(this.ETC_TYPE);
@@ -270,9 +261,9 @@ public class MainFrame extends JFrame implements IEtcCalculationMethod, ITypeOfC
         theBox.add(theMassButton);
         theMassButton.addItemListener(new TypeOfCalculationButtonItemListener(this));
         
-//        this.setTypeOfCalculationMethodButtonGroup().add(theNmrButton);
-//        theBox.add(theNmrButton);
-//        theNmrButton.addItemListener(new TypeOfCalculationButtonItemListener(this));
+        this.setTypeOfCalculationMethodButtonGroup().add(theNmrButton);
+        theBox.add(theNmrButton);
+        theNmrButton.addItemListener(new TypeOfCalculationButtonItemListener(this));
 
         this.setTypeOfCalculationMethodButtonGroup().add(theEtcButton);
         theBox.add(theEtcButton);
@@ -293,7 +284,7 @@ public class MainFrame extends JFrame implements IEtcCalculationMethod, ITypeOfC
         Box theBox = Box.createVerticalBox();
 
         theBox.add(this.__generateCalculationOptionLabelBox());
-        theBox.add(this.__generateCalcultionOptionCheckBox());
+        theBox.add(this.__generateCalculationOptionCheckBox());
         theBox.add(Box.createVerticalStrut(this.OPTION_CHECK_BOX_VERTICAL_MARGIN));
 
         return theBox;
@@ -307,7 +298,7 @@ public class MainFrame extends JFrame implements IEtcCalculationMethod, ITypeOfC
         return theBox;
     }
 
-    private Box __generateCalcultionOptionCheckBox() {
+    private Box __generateCalculationOptionCheckBox() {
         Box theBox = Box.createVerticalBox();
 
         theBox.add(this.__generateCalculationIotionCheckBoxSet());
@@ -333,14 +324,10 @@ public class MainFrame extends JFrame implements IEtcCalculationMethod, ITypeOfC
     }
 
     private void __generateCalculationComboBox() {
-        this.setComboBox(Box.createHorizontalBox());
-        JComboBox theComboBox = new JComboBox(this.__getCalculationMethodArray());
-
-        this.setComboBox().add(theComboBox);
-        this.setComboBox().setSize(Integer.MAX_VALUE, this.MAXIMUM_TEXT_FIELD_HEIGHT);
+        EtcComboBox theComboBox = new EtcComboBox(this);
         
-        theComboBox.addItemListener(new ComboBoxActionListener(this));
-        theComboBox.setSelectedIndex(this.FIRST_INDEX);
+        theComboBox.generateEtcCombBox();
+        this.setComboBox().setSize(Integer.MAX_VALUE, this.MAXIMUM_TEXT_FIELD_HEIGHT);
     }
 
     private Box __generateCalculateButtonBox() {

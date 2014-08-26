@@ -15,5 +15,7 @@ public interface IEtcCalculationMethod {
 
     String INPUT_THREAD_INFORMATION = "Input Thread Information(Gaussian)";
     String MERGE_MOLECULE_FILE = "Merge Molecule File";
-    String SPLIT_MOLECULE_FILE = "Split molecule file";
+    String SPLIT_MOLECULE_FILE = "Split Molecule File";
+    String CALCULATE_MPEOE_AND_CDEAP = "Calculate MPEOE and CDEAP";
+    String CALCULATE_SOLVATION_FREE_ENERGY = "Calculate Solvation Free Energy using GSFED";
 }

@@ -25,6 +25,7 @@ public class MassComboBox implements IMassCalculationMethod {
     //constant int variable
     private Integer FIRST_INDEX = 0;
     private Integer MAXIMUM_COMBO_BOX_HEIGHT = 30;
+    private Integer MAXIMUM_ROW_COUNT = 4;
     
 
     public MassComboBox(MainFrame itsFrame) {
@@ -54,7 +55,8 @@ public class MassComboBox implements IMassCalculationMethod {
 
     public void generateMassComboBox() {
         JComboBox theMassComboBox = new JComboBox(this.getMassCalculationMethodArray());
-
+        
+        theMassComboBox.setMaximumRowCount(this.MAXIMUM_ROW_COUNT);
         theMassComboBox.setMaximumSize(new Dimension(Integer.MAX_VALUE, this.MAXIMUM_COMBO_BOX_HEIGHT));
         this.setFrame().setComboBox().removeAll();
         this.setFrame().setComboBox().add(theMassComboBox);

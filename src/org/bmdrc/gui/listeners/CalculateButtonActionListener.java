@@ -24,8 +24,11 @@ import org.bmdrc.gui.interfaces.INmrCalculationMethod;
 import org.bmdrc.gui.interfaces.ITypeOfCalculation;
 import org.bmdrc.interfaces.IStringConstant;
 import org.bmdrc.mass.tool.Compare20And500Scan;
+import org.bmdrc.nmr.gui.NmrInCalculateButtonActionListener;
 import org.bmdrc.tools.InputThreadInformation;
 import org.bmdrc.tools.MoleculeModifier;
+import org.bmdrc.tools.MpeoeAndCdeapCalculator;
+import org.bmdrc.tools.SFECalculator;
 
 /**
  *
@@ -67,6 +70,8 @@ public class CalculateButtonActionListener implements ActionListener,IMassCalcul
         
         if(this.getFrame().getTypeOfCalculationMethod().equals(this.MASS_TYPE)) {
             this.__calculateMassType();
+        } else if(this.getFrame().getTypeOfCalculationMethod().equals(this.NMR_TYPE)) {
+            NmrInCalculateButtonActionListener.calculate(this.getFrame());
         } else if(this.getFrame().getTypeOfCalculationMethod().equals(this.ETC_TYPE)) {
             this.__calculateEtcType();
         } else {
@@ -89,6 +94,10 @@ public class CalculateButtonActionListener implements ActionListener,IMassCalcul
             this.__mergeMoleculeFile();
         } else if (this.getFrame().getSelectedCalculationMethod().equals(this.SPLIT_MOLECULE_FILE)) {
             this.__splitMoleculeFile();
+        } else if (this.getFrame().getSelectedCalculationMethod().equals(this.CALCULATE_MPEOE_AND_CDEAP)) {
+            this.__calculateMpeoeAndCdeap();
+        } else if (this.getFrame().getSelectedCalculationMethod().equals(this.CALCULATE_SOLVATION_FREE_ENERGY)) {
+            SFECalculator.calculateSFE(this.getFrame());
         }
     }
     private void __calculateInputThreadInformation() {
@@ -226,4 +235,19 @@ public class CalculateButtonActionListener implements ActionListener,IMassCalcul
         
         return true;
     }
+    
+    private void __calculateMpeoeAndCdeap() {
+        try {
+            MpeoeAndCdeapCalculator theCalculator = new MpeoeAndCdeapCalculator();
+            
+            theCalculator.generateMpeoeAndCdeapListByMoleculeFile(new File(this.getFrame().getFilePathTextFieldList().get(this.INPUT_FILE_PATH_INDEX).getText()), false);
+            theCalculator.writeMpeoeAndCdeapInMoleculeFile(new File(this.getFrame().getFilePathTextFieldList().get(this.RESULT_FILE_PATH_INDEX).getText()));
+        } catch (FileNotFoundException ex) {
+            JOptionPane.showMessageDialog(null, "Input file이 존재하지 않습니다.", "Error", JOptionPane.ERROR_MESSAGE);
+        } catch (IOException ex) {
+            JOptionPane.showMessageDialog(null, "IOException Error!!", "Error", JOptionPane.ERROR_MESSAGE);
+        }
+    }
+    
+    
 }

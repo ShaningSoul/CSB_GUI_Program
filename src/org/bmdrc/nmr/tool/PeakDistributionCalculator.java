@@ -403,7 +403,6 @@ public class PeakDistributionCalculator {
         StringBuilder theResultFileString = new StringBuilder();
         BufferedWriter theFileWriter = new BufferedWriter(new FileWriter(theOutputFilePath));
 
-
         for (int li = 0, lEnd = this.getPeakDistributionList().size(); li < lEnd; li++) {
             double theMinimumInRange = this.MINIMUM_CHEMICAL_SHIFT + (li * this.getInterval());
             double theMaximumInRange = this.MINIMUM_CHEMICAL_SHIFT + ((li + 1) * this.getInterval());

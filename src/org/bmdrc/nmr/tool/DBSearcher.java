@@ -1,8 +1,17 @@
 package org.bmdrc.nmr.tool;
 
+import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
+import javax.swing.Box;
+import javax.swing.JButton;
+import javax.swing.JLabel;
+import javax.swing.JTextField;
+import org.bmdrc.gui.MainFrame;
+import org.bmdrc.util.SDFReader;
+import org.bmdrc.util.SDFWriter;
 import org.bmdrc.util.TopologicalDistanceMatrix;
+import org.openscience.cdk.MoleculeSet;
 import org.openscience.cdk.interfaces.IAtom;
 import org.openscience.cdk.interfaces.IMolecule;
 import org.openscience.cdk.interfaces.IMoleculeSet;
@@ -24,6 +33,16 @@ public class DBSearcher {
     private final int NUMBER_OF_BOUNDED_HYDROGEN_IN_QUTERNARY_CARBON = 0;
     private final int SIZE_OF_CARBON_QUERY_SIZE = 4;
 
+    public DBSearcher(File theDBMoleculeFile, int theMaximumCouplingDistanceDistanceInQuternary, int theMaximumCouplingDistanceDistanceInOther) {
+        this.setDBMoleculeSet(SDFReader.openMoleculeFile(theDBMoleculeFile));
+        this.setResultMoleculeSet(new MoleculeSet());
+        this.setCarbonQueryList(new ArrayList<CarbonQuery>());
+        this.setHydrogenQueryList(new ArrayList<HydrogenQuery>());
+        this.setMaximumCouplingDistanceDistanceInQuternary(theMaximumCouplingDistanceDistanceInQuternary);
+        this.setMaximumCouplingDistanceDistanceInOther(theMaximumCouplingDistanceDistanceInOther);
+    }
+
+    
     public List<CarbonQuery> getCarbonQueryList() {
         return itsCarbonQueryList;
     }
@@ -88,6 +107,27 @@ public class DBSearcher {
         this.itsMaximumCouplingDistanceDistanceInOther = theMaximumCouplingDistanceDistanceInOther;
     }
 
+    public static void generateDBSearcherFilePathBox(MainFrame theFrame) {
+        final int theInputBoxVerticalMargin = 5;
+
+        if (theFrame.setInputArea() != null) {
+            theFrame.setInputArea().removeAll();
+        } else {
+            theFrame.setInputArea(Box.createVerticalBox());
+        }
+
+        theFrame.setInputArea().setFocusable(true);
+        theFrame.setFilePathTextFieldList(new ArrayList<JTextField>());
+        theFrame.setInputArea().add(theFrame.getTemplateFilePathBox());
+        theFrame.setInputArea().add(theFrame.generateInputBox(new JLabel("Input Dir : "), new JTextField(20), new JButton("select")));
+        theFrame.setInputArea().add(Box.createVerticalStrut(theInputBoxVerticalMargin));
+        theFrame.setInputArea().add(theFrame.generateInputBox(new JLabel("Maximum Topological Distance In Quternary : "), new JTextField(20), null));
+        theFrame.setInputArea().add(Box.createVerticalStrut(theInputBoxVerticalMargin));
+        theFrame.setInputArea().add(theFrame.generateInputBox(new JLabel("Maximum Topological Distance In Other : "), new JTextField(20), null));
+        theFrame.setInputArea().add(Box.createVerticalStrut(theInputBoxVerticalMargin));
+        theFrame.setInputArea().add(theFrame.generateInputBox(new JLabel("Result File : "), new JTextField(20), new JButton("select")));
+    }
+    
     public void searchMatchedMoleculeIn2DNMR() {
         for (int mi = 0, mEnd = this.getDBMoleculeSet().getMoleculeCount(); mi < mEnd; mi++) {
             if (this.__isMatchedMoleculeIn2DNMR(this.getDBMoleculeSet().getMolecule(mi))) {
@@ -96,6 +136,10 @@ public class DBSearcher {
         }
     }
 
+    public void writeResultMoleculeSet(File theResultFilePath) {
+        SDFWriter.writeSDFile(this.getResultMoleculeSet(), theResultFilePath);
+    }
+    
     private boolean __isMatchedMoleculeIn2DNMR(IMolecule theMolecule) {
         TopologicalDistanceMatrix theDistanceMatrixAmongCarbon = new TopologicalDistanceMatrix(theMolecule);
         List<CarbonQuery> theCarbonQueryListInMolecule = this.__generateCarbonQueryListInMolecule(theMolecule, theDistanceMatrixAmongCarbon);

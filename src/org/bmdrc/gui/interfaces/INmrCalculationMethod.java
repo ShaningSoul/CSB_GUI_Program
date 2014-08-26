@@ -14,4 +14,5 @@ package org.bmdrc.gui.interfaces;
  */
 public interface INmrCalculationMethod {
 
+    String DB_SEARCH_USING_2D_NMR = "DB Search using HMQC and HMBC";
 }
