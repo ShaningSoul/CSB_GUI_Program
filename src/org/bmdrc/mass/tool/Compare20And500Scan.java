@@ -10,6 +10,7 @@ package org.bmdrc.mass.tool;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import javax.swing.Box;
@@ -25,7 +26,8 @@ import org.bmdrc.util.Module;
  *
  * @author SungBo Hwang <tyamazaki@naver.com>
  */
-public class Compare20And500Scan {
+public class Compare20And500Scan implements Serializable {
+    private static final long serialVersionUID = -9131789160963893409L;
 
     private MainFrame itsFrame;
     //constant int variable

@@ -5,6 +5,7 @@
 package org.bmdrc.nmr.tool;
 
 import java.io.File;
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
@@ -12,7 +13,6 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
-import java.util.TreeSet;
 import org.bmdrc.nmr.Nmr1dUnit;
 import org.bmdrc.nmr.Nmr1dUnitList;
 import org.bmdrc.util.SDFReader;
@@ -25,7 +25,8 @@ import org.openscience.cdk.interfaces.IMoleculeSet;
  *
  * @author labwindows
  */
-public class CorrelationTableManipulator {
+public class CorrelationTableManipulator implements Serializable{
+    private static final long serialVersionUID = 6449952388099687109L;
 
     private IMoleculeSet itsMoleculeSet;
     private List<Nmr1dUnitList> itsHydrogenChemicalShiftDataInMoleculeSet;

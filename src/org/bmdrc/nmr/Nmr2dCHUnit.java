@@ -1,10 +1,13 @@
 package org.bmdrc.nmr;
 
+import java.io.Serializable;
+
 /**
  *
  * @author SungBo Hwang, CSB
  */
-public class Nmr2dCHUnit extends Nmr2dUnit{
+public class Nmr2dCHUnit extends Nmr2dUnit implements Serializable{
+    private static final long serialVersionUID = 235322192212798827L;
     
     public Double getCarbonShift() {
         return this.getFirstShift();

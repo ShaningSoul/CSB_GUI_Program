@@ -10,6 +10,7 @@ package org.bmdrc.gui.listeners;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.Serializable;
 import javax.swing.JFileChooser;
 import javax.swing.JTextField;
 import org.bmdrc.gui.MainFrame;
@@ -18,7 +19,8 @@ import org.bmdrc.gui.MainFrame;
  *
  * @author SungBo Hwang <tyamazaki@naver.com>
  */
-public class SelectButtonActionListener implements ActionListener {
+public class SelectButtonActionListener implements ActionListener, Serializable {
+    private static final long serialVersionUID = 7527925592492805377L;
 
     private MainFrame itsFrame;
     private JTextField itsTextField;

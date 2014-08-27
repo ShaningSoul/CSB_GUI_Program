@@ -1,10 +1,13 @@
 package org.bmdrc.util;
 
+import java.io.Serializable;
+
 /**
  *
  * @author SungBo Hwang, CSB
  */
-public class TreeLinker {
+public class TreeLinker implements Serializable{
+    private static final long serialVersionUID = 623793713546876188L;
     private int itsPreviousDepth;
     private int itsPresentDepth;
     private int itsIndexInPreviousDepth;

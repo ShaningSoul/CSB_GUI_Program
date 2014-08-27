@@ -4,6 +4,7 @@
  */
 package org.bmdrc.nmr.abstracts;
 
+import java.io.Serializable;
 import java.util.List;
 import org.bmdrc.nmr.Nmr1dUnit;
 
@@ -11,7 +12,8 @@ import org.bmdrc.nmr.Nmr1dUnit;
  *
  * @author labwindows
  */
-public abstract class AbstractNmr1d extends AbstractNmr {
+public abstract class AbstractNmr1d extends AbstractNmr implements Serializable{
+    private static final long serialVersionUID = -9196291127473127266L;
     private List<Nmr1dUnit> itsPeakData;
 
     public List<Nmr1dUnit> getPeakData() {

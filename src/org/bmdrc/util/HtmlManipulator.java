@@ -3,13 +3,15 @@ package org.bmdrc.util;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.io.Serializable;
 import java.net.URL;
 
 /**
  *
  * @author SungBo Hwnag, CSB
  */
-public class HtmlManipulator {
+public class HtmlManipulator implements Serializable{
+    private static final long serialVersionUID = -892202729576811322L;
     private String itsURL;
 
     public String getURL() {

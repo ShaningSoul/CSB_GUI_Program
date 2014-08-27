@@ -8,18 +8,18 @@
 package org.bmdrc.gui;
 
 import java.awt.Dimension;
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
-import javax.swing.Box;
 import javax.swing.JComboBox;
-import org.bmdrc.gui.listeners.ComboBoxActionListener;
 import org.bmdrc.gui.interfaces.IMassCalculationMethod;
 
 /**
  *
  * @author SungBo Hwang <tyamazaki@naver.com>
  */
-public class MassComboBox implements IMassCalculationMethod {
+public class MassComboBox implements IMassCalculationMethod, Serializable {
+    private static final long serialVersionUID = 1973112326797351044L;
 
     private MainFrame itsFrame;
     //constant int variable

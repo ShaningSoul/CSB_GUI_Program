@@ -1,5 +1,6 @@
 package org.bmdrc.nmr.tool;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import org.bmdrc.nmr.HMBC;
@@ -15,7 +16,8 @@ import org.bmdrc.util.Module;
  *
  * @author SungBo Hwang, CSB
  */
-public class CarbonQueryGenerator {
+public class CarbonQueryGenerator implements Serializable{
+    private static final long serialVersionUID = -4323226004568064272L;
 
     //Input variable
     private HMBC itsHMBC;

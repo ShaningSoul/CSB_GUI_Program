@@ -2,10 +2,12 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package org.bmdrc.util;
+package org.bmdrc.chemistry.util;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
+import org.bmdrc.util.TwoDimensionList;
 import org.openscience.cdk.Molecule;
 import org.openscience.cdk.interfaces.IMolecule;
 
@@ -13,7 +15,8 @@ import org.openscience.cdk.interfaces.IMolecule;
  *
  * @author labwindows
  */
-public class DistanceMatrix {
+public class DistanceMatrix implements Serializable{
+    private static final long serialVersionUID = -4683096180546540588L;
     private IMolecule itsMolecule;
     private TwoDimensionList<Double> itsDistanceMatrix;
 

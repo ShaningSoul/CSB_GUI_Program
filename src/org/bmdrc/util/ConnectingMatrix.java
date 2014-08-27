@@ -4,7 +4,9 @@
  */
 package org.bmdrc.util;
 
+import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 import org.openscience.cdk.interfaces.IAtom;
 import org.openscience.cdk.interfaces.IMolecule;
@@ -13,7 +15,8 @@ import org.openscience.cdk.interfaces.IMolecule;
  *
  * @author labwindows
  */
-public class ConnectingMatrix {
+public class ConnectingMatrix implements Serializable, Iterable{
+    private static final long serialVersionUID = -5902115156929428563L;
 
     private TwoDimensionList<Integer> itsConnectingMatrix;
     private IMolecule itsMolecule;
@@ -119,5 +122,10 @@ public class ConnectingMatrix {
         }
 
         return theConnectedAtomNumberList;
+    }
+
+    @Override
+    public Iterator iterator() {
+        return this.getConnectingMatrix().iterator();
     }
 }

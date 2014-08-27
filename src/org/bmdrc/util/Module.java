@@ -2,15 +2,14 @@ package org.bmdrc.util;
 
 import java.io.*;
 import java.util.*;
-import java.text.*;
-import java.util.regex.PatternSyntaxException;
 import org.openscience.cdk.exception.CDKException;
 import org.openscience.cdk.interfaces.IAtomContainer;
 import org.openscience.cdk.interfaces.IMoleculeSet;
 import org.openscience.cdk.tools.CDKHydrogenAdder;
 import org.openscience.cdk.tools.manipulator.AtomContainerManipulator;
 
-public class Module {
+public class Module implements Serializable{
+    private static final long serialVersionUID = 2547069801071138636L;
 
     public static void addHydrogen(IMoleculeSet molSet, String theErrorFilePath) throws IOException {
         File theCdkErrors = new File(theErrorFilePath);

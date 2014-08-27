@@ -91,7 +91,7 @@ public class HoseCodeGenerator {
 
     public static void runProgram(IMoleculeSet theMoleculeSet, int theLevelOfHoseCode) {
         final String TEMPLATE_FILE = "Template.sdf";
-        final String PROGRAM_FILE = "1HNMR_Validation.exe";
+        final String PROGRAM_FILE = "HoseCodeGenerator.exe";
 
         StringBuilder theExecuteString = new StringBuilder();
         SDFWriter.writeSDFile(theMoleculeSet, new File(TEMPLATE_FILE));
@@ -123,7 +123,7 @@ public class HoseCodeGenerator {
     
     public static void generateBatchFilePathBox(MainFrame theFrame) {
         final int theInputBoxVerticalMargin = 5;
-
+        
         theFrame.setInputArea().removeAll();
         theFrame.setInputArea().setFocusable(true);
         theFrame.setFilePathTextFieldList(new ArrayList<JTextField>());
@@ -133,5 +133,7 @@ public class HoseCodeGenerator {
         theFrame.setInputArea().add(theFrame.generateInputBox(new JLabel("Maximum Level of Hose Code : "), new JTextField(20), null));
         theFrame.setInputArea().add(Box.createVerticalStrut(theInputBoxVerticalMargin));
         theFrame.setInputArea().add(theFrame.generateInputBox(new JLabel("Result Dir : "), new JTextField(20), new JButton("select")));
+        theFrame.setInputArea().add(Box.createVerticalStrut(theInputBoxVerticalMargin));
+        
     }
 }

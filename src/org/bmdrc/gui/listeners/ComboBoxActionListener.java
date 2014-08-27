@@ -9,10 +9,7 @@ package org.bmdrc.gui.listeners;
 
 import java.awt.event.ItemEvent;
 import java.awt.event.ItemListener;
-import java.io.IOException;
-import javax.swing.Box;
-import javax.swing.JOptionPane;
-import javax.swing.JScrollPane;
+import java.io.Serializable;
 import modify_file.MassMatcher;
 import org.bmdrc.gui.MainFrame;
 import org.bmdrc.gui.interfaces.IEtcCalculationMethod;
@@ -24,13 +21,13 @@ import org.bmdrc.chemistry.tool.InputThreadInformation;
 import org.bmdrc.chemistry.tool.MoleculeModifier;
 import org.bmdrc.chemistry.tool.MpeoeAndCdeapCalculator;
 import org.bmdrc.chemistry.tool.SFECalculator;
-import org.openscience.cdk.exception.CDKException;
 
 /**
  *
  * @author SungBo Hwang <tyamazaki@naver.com>
  */
-public class ComboBoxActionListener implements ItemListener, IEtcCalculationMethod, IMassCalculationMethod, ITypeOfCalculation {
+public class ComboBoxActionListener implements ItemListener, IEtcCalculationMethod, IMassCalculationMethod, ITypeOfCalculation, Serializable {
+    private static final long serialVersionUID = -3309733742091373243L;
 
     private MainFrame itsFrame;
     //constant int variable

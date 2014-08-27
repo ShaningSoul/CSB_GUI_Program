@@ -7,6 +7,7 @@ package org.bmdrc.nmr.abstracts;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import org.bmdrc.nmr.Nmr1dUnit;
@@ -18,7 +19,8 @@ import org.bmdrc.nmr.Nmr2dUnit;
  *
  * @author labwindows
  */
-public abstract class AbstractNmr2d extends AbstractNmr {
+public abstract class AbstractNmr2d extends AbstractNmr implements Serializable{
+    private static final long serialVersionUID = 7542606196164622426L;
 
     private Nmr2dCHUnitList itsPeak;
     private Nmr2dCHUnitList itsMedianPeak;

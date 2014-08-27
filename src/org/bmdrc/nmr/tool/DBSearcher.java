@@ -1,6 +1,7 @@
 package org.bmdrc.nmr.tool;
 
 import java.io.File;
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import javax.swing.Box;
@@ -10,7 +11,7 @@ import javax.swing.JTextField;
 import org.bmdrc.gui.MainFrame;
 import org.bmdrc.util.SDFReader;
 import org.bmdrc.util.SDFWriter;
-import org.bmdrc.util.TopologicalDistanceMatrix;
+import org.bmdrc.chemistry.util.TopologicalDistanceMatrix;
 import org.openscience.cdk.MoleculeSet;
 import org.openscience.cdk.interfaces.IAtom;
 import org.openscience.cdk.interfaces.IMolecule;
@@ -20,7 +21,8 @@ import org.openscience.cdk.interfaces.IMoleculeSet;
  *
  * @author SungBo Hwang, CSB
  */
-public class DBSearcher {
+public class DBSearcher implements Serializable{
+    private static final long serialVersionUID = 3279959747404958983L;
 
     private List<CarbonQuery> itsCarbonQueryList;
     private List<HydrogenQuery> itsHydrogenQueryList;

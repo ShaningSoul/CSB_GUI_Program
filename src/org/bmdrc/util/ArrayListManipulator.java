@@ -4,13 +4,16 @@
  */
 package org.bmdrc.util;
 
+import java.io.Serializable;
 import java.util.List;
 
 /**
  *
  * @author labwindows
  */
-public class ArrayListManipulator {
+public class ArrayListManipulator implements Serializable{
+    private static final long serialVersionUID = -7005098550835545917L;
+    
     public static <T> Integer count(List<T> theArrayList, T theObject) {
         int theNumber = 0;
         

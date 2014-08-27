@@ -1,11 +1,14 @@
 package org.bmdrc.nmr;
 
+import java.io.Serializable;
+
 /**
  *
  * @author SungBo Hwang, CSB
  * 
  */
-public class Nmr1dUnit extends NMR{
+public class Nmr1dUnit extends NMR implements Serializable{
+    private static final long serialVersionUID = -5796840645223432548L;
     private Double itsChemicalShift;
     private Double itsMinimum;
     private Double itsMaximum;

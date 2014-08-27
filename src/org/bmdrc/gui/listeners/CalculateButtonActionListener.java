@@ -12,9 +12,8 @@ import java.awt.event.ActionListener;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.io.Serializable;
 import java.util.List;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 import org.bmdrc.gui.MainFrame;
@@ -34,7 +33,9 @@ import org.bmdrc.chemistry.tool.SFECalculator;
  *
  * @author SungBo Hwang <tyamazaki@naver.com>
  */
-public class CalculateButtonActionListener implements ActionListener,IMassCalculationMethod, INmrCalculationMethod, IEtcCalculationMethod, IStringConstant, ITypeOfCalculation {
+public class CalculateButtonActionListener implements ActionListener,IMassCalculationMethod, INmrCalculationMethod, IEtcCalculationMethod, IStringConstant, ITypeOfCalculation, 
+        Serializable {
+    private static final long serialVersionUID = 169758791390346523L;
 
     private MainFrame itsFrame;
     //constant int variable

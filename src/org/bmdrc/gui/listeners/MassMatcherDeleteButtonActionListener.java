@@ -10,13 +10,15 @@ package org.bmdrc.gui.listeners;
 import java.awt.Component;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.Serializable;
 import org.bmdrc.gui.MainFrame;
 
 /**
  *
  * @author SungBo Hwang <tyamazaki@naver.com>
  */
-public class MassMatcherDeleteButtonActionListener implements ActionListener {
+public class MassMatcherDeleteButtonActionListener implements ActionListener, Serializable {
+    private static final long serialVersionUID = -3932951115202101347L;
 
     private MainFrame itsFrame;
     private Integer itsIndex;

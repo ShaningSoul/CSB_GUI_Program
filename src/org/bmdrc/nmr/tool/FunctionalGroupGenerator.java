@@ -1,5 +1,6 @@
 package org.bmdrc.nmr.tool;
 
+import java.io.Serializable;
 import java.util.*;
 import java.util.regex.PatternSyntaxException;
 import org.bmdrc.chemistry.interfaces.IAtomicNumber;
@@ -8,7 +9,6 @@ import org.bmdrc.nmr.interfaces.IHoseCodeSymbol;
 import org.bmdrc.util.Module;
 import org.bmdrc.interfaces.IStringConstant;
 import org.bmdrc.nmr.util.FunctionalGroupConstantVariable;
-import org.openscience.cdk.Molecule;
 import org.openscience.cdk.MoleculeSet;
 import org.openscience.cdk.interfaces.IMolecule;
 import org.openscience.cdk.interfaces.IMoleculeSet;
@@ -18,7 +18,8 @@ import org.openscience.cdk.interfaces.IMoleculeSet;
  * @author SungBo Hwang, CSB
  * @version 1.0
  */
-public class FunctionalGroupGenerator implements IFunctionalGroupConstantVariable, IHoseCodeSymbol, IStringConstant, IAtomicNumber{
+public class FunctionalGroupGenerator implements IFunctionalGroupConstantVariable, IHoseCodeSymbol, IStringConstant, IAtomicNumber, Serializable{
+    private static final long serialVersionUID = -2983441054354557055L;
 
     private IMoleculeSet itsMoleculeSet;
     private List<Integer> itsUsualAtomicNumberList;

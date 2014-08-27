@@ -9,13 +9,15 @@ package org.bmdrc.gui.listeners;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.Serializable;
 import org.bmdrc.gui.MainFrame;
 
 /**
  *
  * @author SungBo Hwang <tyamazaki@naver.com>
  */
-public class ExitActionListener implements ActionListener {
+public class ExitActionListener implements ActionListener, Serializable {
+    private static final long serialVersionUID = -8254828145739606953L;
 
     private MainFrame itsFrame;
 

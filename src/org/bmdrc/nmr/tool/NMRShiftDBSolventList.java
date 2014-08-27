@@ -4,14 +4,17 @@
  */
 package org.bmdrc.nmr.tool;
 
+import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
 /**
  *
  * @author labwindows
  */
-public class NMRShiftDBSolventList {
+public class NMRShiftDBSolventList implements Serializable, Iterable{
+    private static final long serialVersionUID = -8361616865429235073L;
 
     private List<String> itsSolventList;
     //constant int variable
@@ -189,5 +192,10 @@ public class NMRShiftDBSolventList {
         }
 
         return false;
+    }
+
+    @Override
+    public Iterator iterator() {
+        return this.getSolventList().iterator();
     }
 }

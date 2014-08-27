@@ -1,13 +1,16 @@
 package org.bmdrc.util;
 
+import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
 /**
  *
  * @author SungBo Hwang, CSB
  */
-public class TwoDimensionList <Type> {
+public class TwoDimensionList <Type> implements Iterable, Serializable{
+    private static final long serialVersionUID = -2687790628875644020L;
     private List<List<Type>> its2dList;
 
     public TwoDimensionList() {
@@ -91,5 +94,10 @@ public class TwoDimensionList <Type> {
         }
         
         return theStringBuilder.toString();
+    }
+
+    @Override
+    public Iterator iterator() {
+        return this.get2dList().iterator();
     }
 }

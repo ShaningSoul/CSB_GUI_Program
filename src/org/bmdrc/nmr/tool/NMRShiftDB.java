@@ -9,12 +9,11 @@ import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.Set;
 import org.bmdrc.chemistry.interfaces.IAtomicNumber;
 import org.bmdrc.nmr.Nmr1dUnit;
 import org.bmdrc.nmr.Nmr1dUnitList;
@@ -36,7 +35,8 @@ import org.openscience.cdk.interfaces.IMoleculeSet;
  * don't have salt molecule
  *
  */
-public class NMRShiftDB implements IStringConstant, IAtomicNumber {
+public class NMRShiftDB implements IStringConstant, IAtomicNumber, Serializable {
+    private static final long serialVersionUID = 2391005592054026471L;
 
     private IMoleculeSet itsMoleculeSet;
     private TwoDimensionList<Nmr1dUnitList> itsHydrogenPeakListByMolecules;

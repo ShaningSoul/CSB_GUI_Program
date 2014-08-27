@@ -1,5 +1,6 @@
 package org.bmdrc.nmr.tool;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -13,7 +14,8 @@ import org.bmdrc.nmr.Nmr1dUnitList;
  *
  * @author SungBo Hwang, CSB
  */
-public class NMRShiftDBManipulator implements IStringConstant{
+public class NMRShiftDBManipulator implements IStringConstant, Serializable{
+    private static final long serialVersionUID = 1596533747508121744L;
     private NMRShiftDB itsNMRShiftDB;
     private Map<String, List<Double>> itsChemicalShiftListMapByHoseCode;
     //constant string variable

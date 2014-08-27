@@ -8,6 +8,7 @@
 
 package org.bmdrc.nmr.util;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import org.bmdrc.nmr.interfaces.IFunctionalGroupConstantVariable;
@@ -16,7 +17,8 @@ import org.bmdrc.nmr.interfaces.IFunctionalGroupConstantVariable;
  *
  * @author SungBo Hwang <tyamazaki@naver.com>
  */
-public class FunctionalGroupConstantVariable implements IFunctionalGroupConstantVariable {
+public class FunctionalGroupConstantVariable implements IFunctionalGroupConstantVariable, Serializable {
+    private static final long serialVersionUID = 2411335635922521941L;
 
     public List<String> getFunctionalGroupList() {
         List<String> theFunctionalGroupList = new ArrayList<>();

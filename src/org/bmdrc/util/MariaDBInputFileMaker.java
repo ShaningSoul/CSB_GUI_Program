@@ -4,6 +4,7 @@ import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
@@ -17,7 +18,8 @@ import org.openscience.cdk.interfaces.IMoleculeSet;
  *
  * @author SungBo Hwang, CSB
  */
-public class MariaDBInputFileMaker {
+public class MariaDBInputFileMaker implements Serializable{
+    private static final long serialVersionUID = 3110973777696891645L;
 
     private Map<String, List<String>> itsPropertyMap;
     private IMoleculeSet itsMoleculeSet;

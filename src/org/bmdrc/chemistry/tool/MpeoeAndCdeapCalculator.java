@@ -12,6 +12,7 @@ import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import javax.swing.Box;
@@ -32,7 +33,8 @@ import org.openscience.cdk.interfaces.IMoleculeSet;
  *
  * @author labwindows
  */
-public class MpeoeAndCdeapCalculator implements IStringConstant {
+public class MpeoeAndCdeapCalculator implements IStringConstant, Serializable {
+    private static final long serialVersionUID = -2819438163659103658L;
 
     private IMoleculeSet itsMoleculeSet;
     private TwoDimensionList<Double> itsMpeoe2dList;

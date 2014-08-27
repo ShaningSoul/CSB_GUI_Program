@@ -8,13 +8,15 @@ package org.bmdrc.gui;
 
 import java.awt.event.ItemEvent;
 import java.awt.event.ItemListener;
+import java.io.Serializable;
 
 
 /**
  *
  * @author tyanazaki
  */
-public class ComboBoxActionListener implements ItemListener {
+public class ComboBoxActionListener implements ItemListener, Serializable {
+    private static final long serialVersionUID = 5561897554004515423L;
 
     private MainFrame itsFrame;
     

@@ -14,6 +14,7 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import javax.swing.Box;
@@ -27,7 +28,8 @@ import org.bmdrc.util.Module;
  *
  * @author SungBo Hwang <tyamazaki@naver.com>
  */
-public class InputThreadInformation {
+public class InputThreadInformation implements Serializable{
+    private static final long serialVersionUID = 8183141576861370477L;
 
     private MainFrame itsFrame;
 

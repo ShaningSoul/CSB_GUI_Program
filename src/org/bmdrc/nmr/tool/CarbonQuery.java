@@ -1,5 +1,6 @@
 package org.bmdrc.nmr.tool;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -7,7 +8,8 @@ import java.util.List;
  *
  * @author SungBou Hwang, CSB
  */
-public class CarbonQuery {
+public class CarbonQuery implements Serializable{
+    private static final long serialVersionUID = 6057037478060661551L;
 
     private List<Integer> itsCarbonQuery;
     

@@ -4,11 +4,14 @@
  */
 package org.bmdrc.nmr;
 
+import java.io.Serializable;
+
 /**
  *
  * @author labwindows
  */
-public class NMR {
+public class NMR implements Serializable{
+    private static final long serialVersionUID = -6702247387704214593L;
     private String itsSolvent;
     private String itsFieldStrength;
     private String itsTemperature;

@@ -7,6 +7,7 @@ package org.bmdrc.chemistry.tool;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.io.Serializable;
 import java.util.ArrayList;
 import javax.swing.Box;
 import javax.swing.JButton;
@@ -19,7 +20,8 @@ import org.bmdrc.gui.MainFrame;
  *
  * @author labwindows
  */
-public class SFECalculator {
+public class SFECalculator implements Serializable{
+    private static final long serialVersionUID = -4676853903497913501L;
 
     public static void calculateSFE(MainFrame theFrame) {
         try {

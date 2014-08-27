@@ -8,6 +8,7 @@ import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashSet;
@@ -17,11 +18,9 @@ import org.bmdrc.chemistry.interfaces.IAtomRadius;
 import org.bmdrc.interfaces.IStringConstant;
 import org.bmdrc.nmr.Nmr1dUnit;
 import org.bmdrc.nmr.Nmr1dUnitList;
-import org.bmdrc.nmr.interfaces.IFunctionalGroupConstantVariable;
 import org.bmdrc.nmr.util.FunctionalGroupConstantVariable;
-import org.bmdrc.util.DistanceMatrix;
+import org.bmdrc.chemistry.util.DistanceMatrix;
 import org.bmdrc.util.TwoDimensionList;
-import org.openscience.cdk.Molecule;
 import org.openscience.cdk.interfaces.IAtom;
 import org.openscience.cdk.interfaces.IMolecule;
 
@@ -29,7 +28,8 @@ import org.openscience.cdk.interfaces.IMolecule;
  *
  * @author labwindows
  */
-public class DescriptorGenerator implements IStringConstant, IAtomRadius {
+public class DescriptorGenerator implements IStringConstant, IAtomRadius, Serializable {
+    private static final long serialVersionUID = -380066083793082117L;
 
     private NMRShiftDB itsNMRShiftDB;
     private List<String> itsDescriptorNameList;

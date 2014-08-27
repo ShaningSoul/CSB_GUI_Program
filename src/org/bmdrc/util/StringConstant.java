@@ -4,11 +4,14 @@
  */
 package org.bmdrc.util;
 
+import java.io.Serializable;
+
 /**
  *
  * @author labwindows
  */
-public class StringConstant {
+public class StringConstant implements Serializable{
+    private static final long serialVersionUID = 3968648527539331963L;
     public final String END_LINE = "\n";
     public final String TAP_STRING = "\t";
     public final String SPACE_STRING = " ";

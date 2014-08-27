@@ -8,19 +8,19 @@
 package org.bmdrc.gui;
 
 import java.awt.Dimension;
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import javax.swing.Box;
 import javax.swing.JComboBox;
-import javax.swing.JLayeredPane;
-import org.bmdrc.gui.listeners.ComboBoxActionListener;
 import org.bmdrc.gui.interfaces.IEtcCalculationMethod;
 
 /**
  *
  * @author SungBo Hwang <tyamazaki@naver.com>
  */
-public class EtcComboBox implements IEtcCalculationMethod {
+public class EtcComboBox implements IEtcCalculationMethod, Serializable {
+    private static final long serialVersionUID = -6792315383317058956L;
 
     private MainFrame itsFrame;
     //constant int variable

@@ -10,6 +10,7 @@ package org.bmdrc.gui.listeners;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.Serializable;
 import javax.swing.Box;
 import javax.swing.JButton;
 import javax.swing.JLabel;
@@ -21,7 +22,8 @@ import org.bmdrc.gui.MainFrame;
  *
  * @author SungBo Hwang <tyamazaki@naver.com>
  */
-public class MassMatchingAddDirButtonActionListener implements ActionListener {
+public class MassMatchingAddDirButtonActionListener implements ActionListener, Serializable {
+    private static final long serialVersionUID = -6863214850391117567L;
 
     private MainFrame itsFrame;
     

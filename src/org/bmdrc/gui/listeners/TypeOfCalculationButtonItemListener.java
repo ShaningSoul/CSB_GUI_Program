@@ -10,7 +10,9 @@ package org.bmdrc.gui.listeners;
 
 import java.awt.event.ItemEvent;
 import java.awt.event.ItemListener;
+import java.io.Serializable;
 import javax.swing.JRadioButton;
+import org.bmdrc.chemistry.tool.InputThreadInformation;
 import org.bmdrc.gui.EtcComboBox;
 import org.bmdrc.gui.MainFrame;
 import org.bmdrc.gui.MassComboBox;
@@ -18,13 +20,13 @@ import org.bmdrc.gui.NmrComboBox;
 import org.bmdrc.gui.interfaces.ITypeOfCalculation;
 import org.bmdrc.mass.tool.Compare20And500Scan;
 import org.bmdrc.nmr.tool.DBSearcher;
-import org.bmdrc.chemistry.tool.InputThreadInformation;
 
 /**
  *
  * @author SungBo Hwang <tyamazaki@naver.com>
  */
-public class TypeOfCalculationButtonItemListener implements ItemListener, ITypeOfCalculation {
+public class TypeOfCalculationButtonItemListener implements ItemListener, ITypeOfCalculation, Serializable {
+    private static final long serialVersionUID = 2285616223945079178L;
 
     private MainFrame itsFrame;
     //constant int variable
@@ -46,6 +48,7 @@ public class TypeOfCalculationButtonItemListener implements ItemListener, ITypeO
         return itsFrame;
     }
     
+    @Override
     public void itemStateChanged(ItemEvent e) {
         JRadioButton theButton = (JRadioButton) e.getItem();
         String theTypeOfCalculation = theButton.getText();

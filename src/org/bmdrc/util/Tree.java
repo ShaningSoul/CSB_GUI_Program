@@ -1,5 +1,6 @@
 package org.bmdrc.util;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -7,7 +8,7 @@ import java.util.List;
  *
  * @author SungBo Hwang, CSB
  */
-public class Tree <Key,Value> {
+public class Tree <Key,Value> implements Serializable{
     private List<TreeNode<Key,Value>> itsTreeNodeList;
     private List<TreeLinker> itsTreeLinkerList;
     private String itsTreeName;

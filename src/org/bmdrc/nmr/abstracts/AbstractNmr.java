@@ -4,11 +4,14 @@
  */
 package org.bmdrc.nmr.abstracts;
 
+import java.io.Serializable;
+
 /**
  *
  * @author labwindows
  */
-public abstract class AbstractNmr {
+public abstract class AbstractNmr implements Serializable{
+    private static final long serialVersionUID = 5706688163884223272L;
     private double itsNMRResolution;
     private double itsSignalToNoise;
 

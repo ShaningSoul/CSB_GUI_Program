@@ -4,10 +4,10 @@
  */
 package org.bmdrc.nmr.tool;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
-import java.util.regex.PatternSyntaxException;
 import org.bmdrc.interfaces.IStringConstant;
 import org.bmdrc.util.TwoDimensionList;
 
@@ -15,7 +15,8 @@ import org.bmdrc.util.TwoDimensionList;
  *
  * @author labwindows
  */
-public class HoseCodeManipulator implements IStringConstant {
+public class HoseCodeManipulator implements IStringConstant, Serializable {
+    private static final long serialVersionUID = -583860313492934921L;
 
     private String itsHoseCode;
     private TwoDimensionList<String> itsHoseCodeLevel2dList;

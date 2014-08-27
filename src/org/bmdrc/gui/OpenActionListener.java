@@ -7,13 +7,15 @@ package org.bmdrc.gui;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.Serializable;
 import javax.swing.JFileChooser;
 
 /**
  *
  * @author tyanazaki
  */
-public class OpenActionListener implements ActionListener {
+public class OpenActionListener implements ActionListener, Serializable {
+    private static final long serialVersionUID = -6832578127691887573L;
     
     private MainFrame itsFrame;
     

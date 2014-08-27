@@ -4,6 +4,7 @@
  */
 package org.bmdrc.nmr;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
@@ -11,7 +12,8 @@ import java.util.List;
  *
  * @author labwindows
  */
-public class Nmr2dCHUnitList implements Iterable{
+public class Nmr2dCHUnitList implements Iterable, Serializable{
+    private static final long serialVersionUID = 1022875418690874678L;
     private List<Nmr2dCHUnit> itsPeakList;
 
     public Nmr2dCHUnitList() {

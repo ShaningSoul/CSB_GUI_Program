@@ -7,6 +7,7 @@
  */
 package org.bmdrc.chemistry.atom;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import org.bmdrc.chemistry.interfaces.IAtomRadius;
@@ -15,7 +16,8 @@ import org.bmdrc.chemistry.interfaces.IAtomRadius;
  *
  * @author SungBo Hwang <tyamazaki@naver.com>
  */
-public class AtomRadius implements IAtomRadius {
+public class AtomRadius implements IAtomRadius, Serializable {
+    private static final long serialVersionUID = -3794665704655076912L;
 
     @Override
     public List<Double> getAtomRadiusList() {

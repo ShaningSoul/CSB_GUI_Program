@@ -1,10 +1,13 @@
 package org.bmdrc.util;
 
+import java.io.Serializable;
+
 /**
  *
  * @author SungBo Hwang, CSB
  */
-public class TreeNode <Key, Value> {
+public class TreeNode <Key, Value> implements Serializable{
+    private static final long serialVersionUID = -5024766869876212083L;
     private Key itsKey;
     private Value itsValue;
     private int itsDepth;

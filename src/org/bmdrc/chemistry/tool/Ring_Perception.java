@@ -30,7 +30,8 @@ import org.openscience.cdk.interfaces.IRing;
  *
  * @author labwindows
  */
-public class Ring_Perception {
+public class Ring_Perception implements Serializable{
+    private static final long serialVersionUID = 1L;
 
     public static void setAromaticityBond(ArrayList<IMolecule> theMolecules) throws CDKException {
         for (int i = 0; i < theMolecules.size(); i++) {

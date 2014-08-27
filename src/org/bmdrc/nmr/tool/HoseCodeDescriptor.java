@@ -4,6 +4,7 @@
  */
 package org.bmdrc.nmr.tool;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import org.bmdrc.nmr.interfaces.IHoseCodeSymbol;
@@ -17,7 +18,8 @@ import org.openscience.cdk.interfaces.IMolecule;
  *
  * @author labwindows
  */
-public class HoseCodeDescriptor implements IHoseCodeSymbol, IStringConstant {
+public class HoseCodeDescriptor implements IHoseCodeSymbol, IStringConstant, Serializable {
+    private static final long serialVersionUID = -59951873654089193L;
 
     private IMolecule itsMolecule;
     private List<String> itsHoseCodeNameList;

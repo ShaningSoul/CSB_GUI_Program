@@ -8,6 +8,7 @@
 package org.bmdrc.chemistry.tool;
 
 import java.io.File;
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import javax.swing.Box;
@@ -26,7 +27,8 @@ import org.openscience.cdk.interfaces.IMoleculeSet;
  *
  * @author SungBo Hwang <tyamazaki@naver.com>
  */
-public class MoleculeModifier {
+public class MoleculeModifier implements Serializable{
+    private static final long serialVersionUID = 8607769951655757519L;
 
     private MainFrame itsMainFrame;
 

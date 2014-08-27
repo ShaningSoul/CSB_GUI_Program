@@ -1,5 +1,6 @@
 package org.bmdrc.nmr.tool;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -7,7 +8,8 @@ import java.util.List;
  *
  * @author SungBo Hwang. CSB
  */
-public class HydrogenQuery {
+public class HydrogenQuery implements Serializable{
+    private static final long serialVersionUID = -1744063235525005341L;
     private List<Integer> itsHydrogenQuery;
     
     private final int SIZE_OF_QUERY = 4;

@@ -1,11 +1,14 @@
 package org.bmdrc.mass;
 
+import java.io.Serializable;
+
 /**
  *
  * @author SungBo Hwang, CSB
  * @author GiBum Shin, CSB
  */
-public class PeakUnit {
+public class PeakUnit implements Serializable {
+    private static final long serialVersionUID = 397217927290274359L;
     Double itsWeight;
     Double itsIntensity;
     String itsExperimentFile;

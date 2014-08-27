@@ -6,6 +6,7 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -25,7 +26,8 @@ import org.openscience.cdk.io.iterator.IteratingMDLReader;
  * @author SungBo Hwang, CSB
  * @author Gi Beom Shin, CSB
  */
-public class PeakMatcher implements IStringConstant {
+public class PeakMatcher implements IStringConstant, Serializable {
+    private static final long serialVersionUID = 2443180864192011990L;
 
     private IMoleculeSet itsMoleculeSet;
     private PeakList itsPeakList;

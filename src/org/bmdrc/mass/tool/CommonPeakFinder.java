@@ -5,6 +5,7 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Iterator;
@@ -21,7 +22,8 @@ import org.bmdrc.util.TwoDimensionList;
  *
  * @author SungBo Hwang, CSB
  */
-public class CommonPeakFinder {
+public class CommonPeakFinder implements Serializable{
+    private static final long serialVersionUID = 3929675568003391855L;
 
     private List<PeakList> itsPeak2dList;
     private List<PeakList> itsCommonPeak2dList;

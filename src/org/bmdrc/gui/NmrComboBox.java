@@ -8,17 +8,17 @@
 package org.bmdrc.gui;
 
 import java.awt.Dimension;
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import javax.swing.JComboBox;
-import org.bmdrc.gui.listeners.ComboBoxActionListener;
 import org.bmdrc.gui.interfaces.INmrCalculationMethod;
 
 /**
  *
  * @author SungBo Hwang <tyamazaki@naver.com>
  */
-public class NmrComboBox implements INmrCalculationMethod {
+public class NmrComboBox implements INmrCalculationMethod, Serializable {
 
     private MainFrame itsFrame;
     //constant int variable

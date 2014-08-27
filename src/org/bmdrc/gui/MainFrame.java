@@ -13,6 +13,7 @@ import org.bmdrc.gui.listeners.CalculateButtonActionListener;
 import java.awt.*;
 import java.awt.event.*;
 import java.io.File;
+import java.io.Serializable;
 import java.util.ArrayList;
 import javax.swing.*;
 import javax.swing.event.*;
@@ -26,7 +27,8 @@ import org.bmdrc.chemistry.tool.InputThreadInformation;
  *
  * @author SungBo Hwang <tyamazaki@naver.com>
  */
-public class MainFrame extends JFrame implements IEtcCalculationMethod, ITypeOfCalculation {
+public class MainFrame extends JFrame implements IEtcCalculationMethod, ITypeOfCalculation, Serializable {
+    private static final long serialVersionUID = 7865624320459887975L;
 
     private File itsInputFile;
     private ArrayList<JTextField> itsFilePathTextFieldList;

@@ -1,15 +1,15 @@
 package org.bmdrc.mass.tool;
 
+import java.io.Serializable;
 import org.bmdrc.mass.PeakList;
-import org.bmdrc.mass.PeakList;
-import org.bmdrc.mass.PeakUnit;
 import org.bmdrc.mass.PeakUnit;
 
 /**
  *
  * @author SungBo Hwang, CSB
  */
-public class NovelPeakFinder {
+public class NovelPeakFinder implements Serializable{
+    private static final long serialVersionUID = -6381629968938410711L;
     private PeakList itsOriginalPeakList;
     private PeakList itsTestPeakList;
 

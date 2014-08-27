@@ -4,8 +4,10 @@
  */
 package org.bmdrc.nmr.tool;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Iterator;
 import java.util.List;
 import org.openscience.cdk.interfaces.IMolecule;
 
@@ -13,7 +15,8 @@ import org.openscience.cdk.interfaces.IMolecule;
  *
  * @author labwindows
  */
-public class FunctionalGroupList {
+public class FunctionalGroupList implements Serializable, Iterable{
+    private static final long serialVersionUID = -1619456015360767165L;
     private List<String> itsFunctionalGroupList;
     //constant string variable
     private final String KEY_VALUE_FUNCTIONAL_GROUP = "Functional_Group";
@@ -108,5 +111,10 @@ public class FunctionalGroupList {
     
     public int size() {
         return this.getFunctionalGroupList().size();
+    }
+
+    @Override
+    public Iterator iterator() {
+        return this.getFunctionalGroupList().iterator();
     }
 }

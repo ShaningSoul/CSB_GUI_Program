@@ -4,6 +4,7 @@ import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
@@ -20,7 +21,8 @@ import org.openscience.cdk.interfaces.IMoleculeSet;
  *
  * @author SungBo Hwang, CSB
  */
-public class PeakDistributionCalculator {
+public class PeakDistributionCalculator implements Serializable{
+    private static final long serialVersionUID = -3421326434019682972L;
     //class member variable
 
     private IMoleculeSet itsMoleculeSet;
