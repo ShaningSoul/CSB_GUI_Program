@@ -19,7 +19,6 @@ public class Nmr2dCHUnitList implements Iterable, Serializable{
     public Nmr2dCHUnitList() {
         this.itsPeakList = new ArrayList<>();
     }
-
     
     public Nmr2dCHUnitList(List<Nmr2dCHUnit> thePeakList) {
         this.itsPeakList = new ArrayList<>(thePeakList);

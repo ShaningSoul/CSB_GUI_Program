@@ -9,6 +9,9 @@ import java.io.Serializable;
 public class Nmr2dCHUnit extends Nmr2dUnit implements Serializable{
     private static final long serialVersionUID = 235322192212798827L;
     
+    public static final Integer CARBON_SHIFT_INDEX = 0;
+    public static final Integer HYDROGEN_SHIFT_INDEX = 1;
+    
     public Double getCarbonShift() {
         return this.getFirstShift();
     }
@@ -68,5 +71,15 @@ public class Nmr2dCHUnit extends Nmr2dUnit implements Serializable{
         }
         
         return false;
+    }
+    
+    public Double getChemicalShift(Integer theTypeOfChemicalShift) {
+        if(theTypeOfChemicalShift.equals(this.CARBON_SHIFT_INDEX)) {
+            return this.getCarbonShift();
+        } else if(theTypeOfChemicalShift.equals(this.HYDROGEN_SHIFT_INDEX)) {
+            return this.getHydrogenShift();
+        }
+        
+        return Double.NaN;
     }
 }

@@ -13,10 +13,10 @@ public class HydrogenQuery implements Serializable{
     private List<Integer> itsHydrogenQuery;
     
     private final int SIZE_OF_QUERY = 4;
-    private final int INDEX_OF_RH = 0;
-    private final int INDEX_OF_RH2 = 1;
-    private final int INDEX_OF_RH3 = 2;
-    private final int INDEX_OF_OH = 3;
+    public static final int INDEX_OF_RH = 0;
+    public static final int INDEX_OF_RH2 = 1;
+    public static final int INDEX_OF_RH3 = 2;
+    public static final int INDEX_OF_OH = 3;
 
     public HydrogenQuery() {
         this.itsHydrogenQuery = new ArrayList<>();
@@ -25,12 +25,10 @@ public class HydrogenQuery implements Serializable{
             this.itsHydrogenQuery.add(0);
         }
     }
-
     
     public HydrogenQuery(List<Integer> itsHydrogenQuery) {
         this.itsHydrogenQuery = new ArrayList<>(itsHydrogenQuery);
     }
-
     
     public List<Integer> getHydrogenQuery() {
         return itsHydrogenQuery;
@@ -74,6 +72,14 @@ public class HydrogenQuery implements Serializable{
     
     public int getNumberOfOHGroup() {
         return this.getHydrogenQuery().get(INDEX_OF_OH);
+    }
+    
+    public void set(int theTypeOfHydrogen, int theNumberOfHydrogenType) {
+        this.setHydrogenQuery().set(theTypeOfHydrogen, theNumberOfHydrogenType);
+    }
+    
+    public Integer get(int theNumberOfHydrogen) {
+        return this.getHydrogenQuery().get(theNumberOfHydrogen);
     }
     
     @Override

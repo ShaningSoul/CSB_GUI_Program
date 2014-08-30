@@ -27,9 +27,9 @@ import org.openscience.cdk.interfaces.IMoleculeSet;
  *
  * @author SungBo Hwang <tyamazaki@naver.com>
  */
-public class MoleculeModifier implements Serializable{
-    private static final long serialVersionUID = 8607769951655757519L;
+public class MoleculeModifier implements Serializable {
 
+    private static final long serialVersionUID = 8607769951655757519L;
     private MainFrame itsMainFrame;
 
     public MoleculeModifier(MainFrame itsMainFrame) {
@@ -51,50 +51,62 @@ public class MoleculeModifier implements Serializable{
     public void mergeMoleculeFile(String theInputDir, String theResultFilePath) {
         List<File> theFileList = Module.getFileList(theInputDir);
         IMoleculeSet theResultMoleculeSet = new MoleculeSet();
+        int theNumberOfFile = theFileList.size();
 
         this.setMainFrame().setLogTextArea().append("Merge Molecule File Start!!\n");
         for (File theFile : theFileList) {
-            this.setMainFrame().setLogTextArea().append(theFile + "\n");
-            IMoleculeSet theMoleculeSet = SDFReader.openMoleculeFile(theFile);
+            try {
+                IMoleculeSet theMoleculeSet = SDFReader.openMoleculeFile(theFile);
 
-            theResultMoleculeSet.addMolecule(theMoleculeSet.getMolecule(0));
+                theResultMoleculeSet.addMolecule(theMoleculeSet.getMolecule(0));
+            } catch (NullPointerException e) {
+                this.setMainFrame().setLogTextArea().append(theFile.toString() + " ---> Error!!\n");
+                theNumberOfFile--;
+            }
         }
         this.setMainFrame().setLogTextArea().append("Read End!!\n");
         SDFWriter.writeSDFile(theResultMoleculeSet, new File(theResultFilePath));
         this.setMainFrame().setLogTextArea().append("Write End!!\n");
+        this.setMainFrame().setLogTextArea().append("Total Number of File : " + theFileList.size() + "\n");
+        this.setMainFrame().setLogTextArea().append("Success : " + theNumberOfFile + "\n");
+        this.setMainFrame().setLogTextArea().append("Fail : " + (theFileList.size() - theNumberOfFile) + "\n");
     }
 
     public static void generateMergeMoleculeFileFilePathBox(MainFrame theFrame) {
         int theInputBoxVerticalMargin = 5;
-        
+
         theFrame.setInputArea().removeAll();
-        
+
         theFrame.setFilePathTextFieldList(new ArrayList<JTextField>());
         theFrame.setInputArea().add(theFrame.getTemplateFilePathBox());
         theFrame.setInputArea().add(theFrame.generateInputBox(new JLabel("Input Dir : "), new JTextField(20), new JButton("select")));
         theFrame.setInputArea().add(Box.createVerticalStrut(theInputBoxVerticalMargin));
         theFrame.setInputArea().add(theFrame.generateInputBox(new JLabel("Result File : "), new JTextField(20), new JButton("select")));
     }
-    
+
     public void splitedMoleculeFile(String theMoleculeFilePath, String theResultDir) {
         IMoleculeSet theMoleculeSet = SDFReader.openMoleculeFile(new File(theMoleculeFilePath));
-        if(!theResultDir.substring(theResultDir.length()-1, theResultDir.length()-1).equals("\\")) {
+        
+        this.setMainFrame().setLogTextArea().append("Split Molecule File Start!!\n");
+        if (!theResultDir.substring(theResultDir.length() - 1, theResultDir.length() - 1).equals("\\")) {
             theResultDir = theResultDir + "\\";
         }
-        
-        for(int mi = 0, mEnd = theMoleculeSet.getMoleculeCount(); mi < mEnd ; mi++) {
+
+        for (int mi = 0, mEnd = theMoleculeSet.getMoleculeCount(); mi < mEnd; mi++) {
             IMoleculeSet theResultMoleculeSet = new MoleculeSet();
-            
+
             theResultMoleculeSet.addMolecule(theMoleculeSet.getMolecule(mi));
             SDFWriter.writeSDFile(theResultMoleculeSet, new File(theResultDir + String.format("%04d", mi) + ".sdf"));
         }
+        this.setMainFrame().setLogTextArea().append("Split Molecule End!!\n");
+        this.setMainFrame().setLogTextArea().append("Total Number of File : " + theMoleculeSet.getMoleculeCount() + "\n");
     }
-    
+
     public static void generateSplitedMoleculeFileFilePathBox(MainFrame theFrame) {
         int theInputBoxVerticalMargin = 5;
-        
+
         theFrame.setInputArea().removeAll();
-        
+
         theFrame.setFilePathTextFieldList(new ArrayList<JTextField>());
         theFrame.setInputArea().add(theFrame.getTemplateFilePathBox());
         theFrame.setInputArea().add(theFrame.generateInputBox(new JLabel("Input File : "), new JTextField(20), new JButton("select")));

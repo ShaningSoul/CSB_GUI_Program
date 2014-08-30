@@ -24,6 +24,7 @@ public class NmrComboBox implements INmrCalculationMethod, Serializable {
     private MainFrame itsFrame;
     //constant int variable
     private Integer FIRST_INDEX = 0;
+    private Integer MAXIMUM_ROW_COUNT = 4;
     private Integer MAXIMUM_COMBO_BOX_HEIGHT = 30;
 
     public NmrComboBox(MainFrame itsFrame) {
@@ -55,6 +56,7 @@ public class NmrComboBox implements INmrCalculationMethod, Serializable {
     public void generateNmrCombBox() {
         JComboBox theNmrComboBox = new JComboBox(this.getTypeOfCalculationMethodArray());
 
+        theNmrComboBox.setMaximumRowCount(this.MAXIMUM_ROW_COUNT);
         theNmrComboBox.setMaximumSize(new Dimension(Integer.MAX_VALUE, this.MAXIMUM_COMBO_BOX_HEIGHT));
         this.setFrame().setComboBox().removeAll();
         this.setFrame().setComboBox().add(theNmrComboBox);

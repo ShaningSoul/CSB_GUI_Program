@@ -25,6 +25,9 @@ public class Nmr1dUnitList implements Iterable, Serializable{
         this.itsPeakList = new ArrayList<>(itsPeakList);
     }
     
+    public Nmr1dUnitList(Nmr1dUnitList thePeakList) {
+        this.setPeakList(new ArrayList<>(thePeakList.getPeakList()));
+    }
     
     public List<Nmr1dUnit> getPeakList() {
         return itsPeakList;
