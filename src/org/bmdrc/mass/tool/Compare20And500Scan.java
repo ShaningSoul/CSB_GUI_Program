@@ -16,6 +16,7 @@ import java.util.List;
 import javax.swing.Box;
 import javax.swing.JButton;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 import org.bmdrc.gui.MainFrame;
 import org.bmdrc.mass.PeakList;
@@ -55,7 +56,7 @@ public class Compare20And500Scan implements Serializable {
         return itsFrame;
     }
 
-    public void compare20And500Scan() throws FileNotFoundException, IOException {
+    public void compare20And500Scan() {
         this.setFrame().setLogTextArea().append("compare 20 and 500 scan start!!\n");
         this.setFrame().revalidate();
         List<File> theDirList = Module.getDirList(this.getFrame().getFilePathTextFieldList().get(this.INPUT_DIR_PATH_INDEX).getText());
@@ -69,7 +70,13 @@ public class Compare20And500Scan implements Serializable {
         for (File theDir : theDirList) {
             this.setFrame().setLogTextArea().append(theDir + " scan...");
             this.setFrame().setLogTextArea().revalidate();
+            try {
             thePeak2dList.add(this.__findNovelPeakList(theDir));
+            } catch(FileNotFoundException e) {
+                JOptionPane.showMessageDialog(null, "Input Files are not existed!!", "Error", JOptionPane.ERROR_MESSAGE);
+            } catch(IOException e) {
+                JOptionPane.showMessageDialog(null, "IOException in compare 20 scan and 500 scan!!", "Error", JOptionPane.ERROR_MESSAGE);
+            }
         }
 
         this.setFrame().setLogTextArea().append("novel peak scan end!!\n");

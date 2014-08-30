@@ -10,7 +10,7 @@ package org.bmdrc.nmr.gui;
 import java.io.Serializable;
 import org.bmdrc.chemistry.tool.HoseCodeGenerator;
 import org.bmdrc.gui.MainFrame;
-import org.bmdrc.gui.interfaces.INmrCalculationMethod;
+import org.bmdrc.nmr.gui.interfaces.INmrCalculationMethod;
 import org.bmdrc.nmr.tool.DBSearcher;
 
 /**

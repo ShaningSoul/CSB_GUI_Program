@@ -12,7 +12,8 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import javax.swing.JComboBox;
-import org.bmdrc.gui.interfaces.IMassCalculationMethod;
+import org.bmdrc.mass.gui.interfaces.IMassCalculationMethod;
+import org.bmdrc.gui.listeners.ComboBoxActionListener;
 
 /**
  *

@@ -5,7 +5,7 @@
  *
  * Copyright (C) 2014, SungBo Hwang <tyamazaki@naver.com>.
  */
-package org.bmdrc.gui.interfaces;
+package org.bmdrc.mass.gui.interfaces;
 
 /**
  *

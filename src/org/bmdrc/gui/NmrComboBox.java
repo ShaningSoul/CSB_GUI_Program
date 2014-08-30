@@ -12,7 +12,8 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import javax.swing.JComboBox;
-import org.bmdrc.gui.interfaces.INmrCalculationMethod;
+import org.bmdrc.nmr.gui.interfaces.INmrCalculationMethod;
+import org.bmdrc.gui.listeners.ComboBoxActionListener;
 
 /**
  *

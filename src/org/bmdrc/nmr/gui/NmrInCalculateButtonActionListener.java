@@ -11,7 +11,7 @@ import java.io.File;
 import java.io.Serializable;
 import org.bmdrc.chemistry.tool.HoseCodeGenerator;
 import org.bmdrc.gui.MainFrame;
-import org.bmdrc.gui.interfaces.INmrCalculationMethod;
+import org.bmdrc.nmr.gui.interfaces.INmrCalculationMethod;
 import org.bmdrc.nmr.gui.interfaces.INmrInCalculateButtonActionListener;
 import org.bmdrc.nmr.tool.DBSearcher;
 
@@ -21,24 +21,6 @@ import org.bmdrc.nmr.tool.DBSearcher;
  */
 public class NmrInCalculateButtonActionListener implements INmrCalculationMethod, INmrInCalculateButtonActionListener, Serializable {
     private static final long serialVersionUID = -8249962982351770507L;
-
-    private MainFrame itsFrame;
-    
-    public NmrInCalculateButtonActionListener(MainFrame theFrame) {
-        this.itsFrame = theFrame;
-    }
-
-    public MainFrame getFrame() {
-        return itsFrame;
-    }
-
-    public void setFrame(MainFrame theFrame) {
-        this.itsFrame = theFrame;
-    }
-
-    public MainFrame setFrame() {
-        return itsFrame;
-    }
 
     public static void calculate(MainFrame theFrame) {
         switch (theFrame.getSelectedCalculationMethod()) {
