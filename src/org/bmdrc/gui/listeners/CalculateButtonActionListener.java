@@ -28,6 +28,7 @@ import org.bmdrc.chemistry.tool.InputThreadInformation;
 import org.bmdrc.chemistry.tool.MoleculeModifier;
 import org.bmdrc.chemistry.tool.MpeoeAndCdeapCalculator;
 import org.bmdrc.chemistry.tool.SFECalculator;
+import org.bmdrc.mass.gui.MassInCalculateButtonActionListener;
 
 /**
  *
@@ -70,7 +71,7 @@ public class CalculateButtonActionListener implements ActionListener,IMassCalcul
         this.setFrame().revalidate();
         
         if(this.getFrame().getTypeOfCalculationMethod().equals(this.MASS_TYPE)) {
-            this.__calculateMassType();
+            MassInCalculateButtonActionListener.calculate(this.getFrame());
         } else if(this.getFrame().getTypeOfCalculationMethod().equals(this.NMR_TYPE)) {
             NmrInCalculateButtonActionListener.calculate(this.getFrame());
         } else if(this.getFrame().getTypeOfCalculationMethod().equals(this.ETC_TYPE)) {
@@ -80,12 +81,6 @@ public class CalculateButtonActionListener implements ActionListener,IMassCalcul
         }
         
         
-    }
-
-    private void __calculateMassType() {
-        if (this.getFrame().getSelectedCalculationMethod().equals(this.COMPARE_20_AND_500_SCAN)) {
-            this.__compare20And500Scan();
-        } 
     }
     
     private void __calculateEtcType() {
@@ -142,21 +137,6 @@ public class CalculateButtonActionListener implements ActionListener,IMassCalcul
         }
     }
 
-    private void __compare20And500Scan() {
-        Compare20And500Scan theCalculator = new Compare20And500Scan(this.getFrame());
-        try {
-            if (this.__isCorrectConditionInCompare20And500Scan(this.getFrame().getFilePathTextFieldList())) {
-                theCalculator.compare20And500Scan();
-            }
-        } catch (FileNotFoundException ex) {
-            this.setFrame().setLogTextArea().append("File Not Existed!!\n");
-            JOptionPane.showMessageDialog(null, "File Not Existed!!", "Error", JOptionPane.ERROR_MESSAGE);
-        } catch (IOException ex) {
-            this.setFrame().setLogTextArea().append("IO exception!!\n");
-            JOptionPane.showMessageDialog(null, "IO exception!!", "Error", JOptionPane.ERROR_MESSAGE);
-        }
-    }
-
     private boolean __isCorrectFilePathInInputThreadInformation(List<JTextField> theFilePathTextFieldList) {
         for (JTextField theTextField : theFilePathTextFieldList) {
             if (theTextField.getText().isEmpty()) {
@@ -209,22 +189,6 @@ public class CalculateButtonActionListener implements ActionListener,IMassCalcul
         }
 
         return false;
-    }
-
-    private boolean __isCorrectConditionInCompare20And500Scan(List<JTextField> theFilePathTextFieldList) {
-        if (!theFilePathTextFieldList.get(this.PEAK_TOLERENCE_INDEX_IN_COMPARE_20_AND_500_SCAN).getText().matches("[0-9]+")) {
-            return false;
-        } else {
-            if(!this.__isStringDouble(theFilePathTextFieldList.get(this.TOLERENCE_INDEX_IN_COMPARE_20_AND_500_SCAN).getText())) {
-                return false;
-            } else if(!this.__isStringDouble(theFilePathTextFieldList.get(this.TWENTY_SCAN_PEAK_SHIFT_INDEX_IN_COMPARE_20_AND_500_SCAN).getText())) {
-                return false;
-            } else if(!this.__isStringDouble(theFilePathTextFieldList.get(this.FIVE_HUNDRED_SCAN_PEAK_SHIFT_INDEX_IN_COMPARE_20_AND_500_SCAN).getText())) {
-                return false;
-            }
-        }
-
-        return true;
     }
 
     private boolean __isStringDouble(String theString) {
