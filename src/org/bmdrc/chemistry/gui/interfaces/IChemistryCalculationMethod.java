@@ -5,13 +5,13 @@
  *
  * Copyright (C) 2014, SungBo Hwang <tyamazaki@naver.com>.
  */
-package org.bmdrc.gui.interfaces;
+package org.bmdrc.chemistry.gui.interfaces;
 
 /**
  *
  * @author SungBo Hwang <tyamazaki@naver.com>
  */
-public interface IEtcCalculationMethod {
+public interface IChemistryCalculationMethod {
 
     String INPUT_THREAD_INFORMATION = "Input Thread Information(Gaussian)";
     String MERGE_MOLECULE_FILE = "Merge Molecule File";

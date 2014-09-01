@@ -12,7 +12,7 @@ import java.awt.event.ItemListener;
 import java.io.Serializable;
 import modify_file.MassMatcher;
 import org.bmdrc.gui.MainFrame;
-import org.bmdrc.gui.interfaces.IEtcCalculationMethod;
+import org.bmdrc.chemistry.gui.interfaces.IChemistryCalculationMethod;
 import org.bmdrc.mass.gui.interfaces.IMassCalculationMethod;
 import org.bmdrc.gui.interfaces.ITypeOfCalculation;
 import org.bmdrc.mass.tool.Compare20And500Scan;
@@ -27,7 +27,7 @@ import org.bmdrc.mass.gui.MassInComboBoxActionListener;
  *
  * @author SungBo Hwang <tyamazaki@naver.com>
  */
-public class ComboBoxActionListener implements ItemListener, IEtcCalculationMethod, IMassCalculationMethod, ITypeOfCalculation, Serializable {
+public class ComboBoxActionListener implements ItemListener, IChemistryCalculationMethod, IMassCalculationMethod, ITypeOfCalculation, Serializable {
     private static final long serialVersionUID = -3309733742091373243L;
 
     private MainFrame itsFrame;
@@ -60,7 +60,7 @@ public class ComboBoxActionListener implements ItemListener, IEtcCalculationMeth
             MassInComboBoxActionListener.calculate(this.getFrame());
         } else if (this.getFrame().getTypeOfCalculationMethod().equals(this.NMR_TYPE)) {
             NmrInComboBoxActionListener.generateFilePathBox(this.getFrame());
-        } else if (this.getFrame().getTypeOfCalculationMethod().equals(this.ETC_TYPE)) {
+        } else if (this.getFrame().getTypeOfCalculationMethod().equals(this.CHEMISTRY_TYPE)) {
             this.__calculateEtcType(theSelectedCalculationMethod);
         }
 

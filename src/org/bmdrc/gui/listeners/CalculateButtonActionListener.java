@@ -17,7 +17,7 @@ import java.util.List;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 import org.bmdrc.gui.MainFrame;
-import org.bmdrc.gui.interfaces.IEtcCalculationMethod;
+import org.bmdrc.chemistry.gui.interfaces.IChemistryCalculationMethod;
 import org.bmdrc.mass.gui.interfaces.IMassCalculationMethod;
 import org.bmdrc.nmr.gui.interfaces.INmrCalculationMethod;
 import org.bmdrc.gui.interfaces.ITypeOfCalculation;
@@ -34,7 +34,7 @@ import org.bmdrc.mass.gui.MassInCalculateButtonActionListener;
  *
  * @author SungBo Hwang <tyamazaki@naver.com>
  */
-public class CalculateButtonActionListener implements ActionListener,IMassCalculationMethod, INmrCalculationMethod, IEtcCalculationMethod, IStringConstant, ITypeOfCalculation, 
+public class CalculateButtonActionListener implements ActionListener,IMassCalculationMethod, INmrCalculationMethod, IChemistryCalculationMethod, IStringConstant, ITypeOfCalculation, 
         Serializable {
     private static final long serialVersionUID = 169758791390346523L;
 
@@ -74,7 +74,7 @@ public class CalculateButtonActionListener implements ActionListener,IMassCalcul
             MassInCalculateButtonActionListener.calculate(this.getFrame());
         } else if(this.getFrame().getTypeOfCalculationMethod().equals(this.NMR_TYPE)) {
             NmrInCalculateButtonActionListener.calculate(this.getFrame());
-        } else if(this.getFrame().getTypeOfCalculationMethod().equals(this.ETC_TYPE)) {
+        } else if(this.getFrame().getTypeOfCalculationMethod().equals(this.CHEMISTRY_TYPE)) {
             this.__calculateEtcType();
         } else {
             this.getFrame().setLogTextArea().append("Need to Check!!\n");

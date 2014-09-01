@@ -15,6 +15,6 @@ public interface ITypeOfCalculation {
 
     String MASS_TYPE = "Mass";
     String NMR_TYPE = "NMR";
-    String ETC_TYPE = "Etc";
+    String CHEMISTRY_TYPE = "Chemistry";
     
 }

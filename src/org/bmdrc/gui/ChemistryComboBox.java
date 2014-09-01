@@ -13,14 +13,14 @@ import java.util.ArrayList;
 import java.util.List;
 import javax.swing.Box;
 import javax.swing.JComboBox;
-import org.bmdrc.gui.interfaces.IEtcCalculationMethod;
+import org.bmdrc.chemistry.gui.interfaces.IChemistryCalculationMethod;
 import org.bmdrc.gui.listeners.ComboBoxActionListener;
 
 /**
  *
  * @author SungBo Hwang <tyamazaki@naver.com>
  */
-public class EtcComboBox implements IEtcCalculationMethod, Serializable {
+public class ChemistryComboBox implements IChemistryCalculationMethod, Serializable {
     private static final long serialVersionUID = -6792315383317058956L;
 
     private MainFrame itsFrame;
@@ -29,7 +29,7 @@ public class EtcComboBox implements IEtcCalculationMethod, Serializable {
     private Integer MAXIMUM_COMBO_BOX_HEIGHT = 30;
     private Integer MAXIMUM_ROW_COUNT = 4;
 
-    public EtcComboBox(MainFrame itsFrame) {
+    public ChemistryComboBox(MainFrame itsFrame) {
         this.itsFrame = itsFrame;
     }
 

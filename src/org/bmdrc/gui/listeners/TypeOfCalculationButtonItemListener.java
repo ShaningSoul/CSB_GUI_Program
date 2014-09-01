@@ -13,7 +13,7 @@ import java.awt.event.ItemListener;
 import java.io.Serializable;
 import javax.swing.JRadioButton;
 import org.bmdrc.chemistry.tool.InputThreadInformation;
-import org.bmdrc.gui.EtcComboBox;
+import org.bmdrc.gui.ChemistryComboBox;
 import org.bmdrc.gui.MainFrame;
 import org.bmdrc.gui.MassComboBox;
 import org.bmdrc.gui.NmrComboBox;
@@ -68,12 +68,12 @@ public class TypeOfCalculationButtonItemListener implements ItemListener, ITypeO
             this.setFrame().setTypeOfCalculationMethod(this.NMR_TYPE);
             this.setFrame().setSelectedCalculationMethod(theNmrComboBox.getTypeOfCalculationMethodArray()[this.FIRST_INDEX]);
             DBSearcher.generateDBSearcherFilePathBox(this.getFrame());
-        } else if(theTypeOfCalculation.equals(this.ETC_TYPE)) {
-            EtcComboBox theEtcComboBox = new EtcComboBox(this.getFrame());
+        } else if(theTypeOfCalculation.equals(this.CHEMISTRY_TYPE)) {
+            ChemistryComboBox theEtcComboBox = new ChemistryComboBox(this.getFrame());
             
             theEtcComboBox.generateEtcCombBox();
             this.setFrame().setSelectedCalculationMethod(theEtcComboBox.getTypeOfCalculationMethodArray()[this.FIRST_INDEX]);
-            this.setFrame().setTypeOfCalculationMethod(this.ETC_TYPE);
+            this.setFrame().setTypeOfCalculationMethod(this.CHEMISTRY_TYPE);
             InputThreadInformation.generateInputThreadInformationFilePathBox(this.getFrame());
         }
         this.setFrame().revalidate();

@@ -5,7 +5,7 @@
  *
  * Copyright (C) 2014, SungBo Hwang <tyamazaki@naver.com>.
  */
-package org.bmdrc.gui.listeners;
+package org.bmdrc.mass.gui.listener;
 
 import java.awt.Component;
 import java.awt.event.ActionEvent;

@@ -19,7 +19,7 @@ import javax.swing.*;
 import javax.swing.event.*;
 import javax.swing.border.*;
 import org.bmdrc.gui.listeners.TypeOfCalculationButtonItemListener;
-import org.bmdrc.gui.interfaces.IEtcCalculationMethod;
+import org.bmdrc.chemistry.gui.interfaces.IChemistryCalculationMethod;
 import org.bmdrc.gui.interfaces.ITypeOfCalculation;
 import org.bmdrc.chemistry.tool.InputThreadInformation;
 
@@ -27,7 +27,7 @@ import org.bmdrc.chemistry.tool.InputThreadInformation;
  *
  * @author SungBo Hwang <tyamazaki@naver.com>
  */
-public class MainFrame extends JFrame implements IEtcCalculationMethod, ITypeOfCalculation, Serializable {
+public class MainFrame extends JFrame implements IChemistryCalculationMethod, ITypeOfCalculation, Serializable {
     private static final long serialVersionUID = 7865624320459887975L;
 
     private File itsInputFile;
@@ -255,9 +255,9 @@ public class MainFrame extends JFrame implements IEtcCalculationMethod, ITypeOfC
         Box theBox = Box.createHorizontalBox();
         JRadioButton theMassButton = new JRadioButton(this.MASS_TYPE, false);
         JRadioButton theNmrButton = new JRadioButton(this.NMR_TYPE, false);
-        JRadioButton theEtcButton = new JRadioButton(this.ETC_TYPE, true);
+        JRadioButton theEtcButton = new JRadioButton(this.CHEMISTRY_TYPE, true);
 
-        this.setTypeOfCalculationMethod(this.ETC_TYPE);
+        this.setTypeOfCalculationMethod(this.CHEMISTRY_TYPE);
         
         this.setTypeOfCalculationMethodButtonGroup().add(theMassButton);
         theBox.add(theMassButton);
@@ -326,7 +326,7 @@ public class MainFrame extends JFrame implements IEtcCalculationMethod, ITypeOfC
     }
 
     private void __generateCalculationComboBox() {
-        EtcComboBox theComboBox = new EtcComboBox(this);
+        ChemistryComboBox theComboBox = new ChemistryComboBox(this);
         
         theComboBox.generateEtcCombBox();
         this.setComboBox().setSize(Integer.MAX_VALUE, this.MAXIMUM_TEXT_FIELD_HEIGHT);
